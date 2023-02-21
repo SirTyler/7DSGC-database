@@ -52,6 +52,15 @@ class Database extends Component {
             data.push(c)
         });
 
+        data.sort((n1,n2) => {
+          let a = n1.name.toLowerCase();
+          let b = n2.name.toLowerCase();
+  
+          if(a < b) return -1;
+          if(a > b) return 1;
+          return 0;
+        });
+
         latest.length = 0;
         latest_database.forEach(character => {
             latest.push(
@@ -83,7 +92,7 @@ class Database extends Component {
     }
 
     render() {
-        return(
+      return(
         <ThemeContext.Consumer>
             {(theme) => (
             <>

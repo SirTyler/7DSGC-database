@@ -178,7 +178,7 @@ export default function Character() {
                                 {buildTable("Set 1", character.equipment[0], [], [], 'center')}
                             </Grid.Column>
                             <Grid.Column>
-                                {buildTable("Set 2", character.equipment[0], [], [], 'center')}
+                                {buildTable("Set 2", character.equipment[1], [], [], 'center')}
                             </Grid.Column>
                         </Grid>
                     </Segment>

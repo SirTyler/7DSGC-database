@@ -3,7 +3,6 @@ import {
   createHashRouter,
   Link,
   Outlet,
-  RouterProvider,
   useLocation,
   useRouteError
 } from "react-router-dom";
@@ -18,6 +17,7 @@ import { ThemeContext } from './theme/theme-context';
 import './App.css';
 import Database from './Database';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const state = {
   filterText: ''
 }

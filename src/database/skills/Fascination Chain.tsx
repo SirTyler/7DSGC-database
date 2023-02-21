@@ -1,28 +1,28 @@
-import { Slash } from "../_effects";
+import { Pierce } from "../_effects";
 import { ThemeContext } from '../../theme/theme-context'
 
-export const image = require("../../assets/characters/[Cursed Shackles] Purgatory Meliodas/skill_2.png");
-export const name = "Chain Slash"
+export const image = require("../../assets/characters/[Spellbinding Queen] Goddess of Beauty Freyja/skill_2.png");
+export const name = "Fascination Chain"
 export const ranks = [
     {
         type: "ATTACK-ALL",
-        modifier: 120.0,
+        modifier: 100.0,
         effect: [
-            Slash,
+            Pierce,
         ]
     },
     {
-        type: "ATTACK-ALL",
-        modifier: 180.0,
+        type: "ATTACK-SINGLE",
+        modifier: 150.0,
         effect: [
-            Slash,
+            Pierce,
         ]
     },
     {
-        type: "ATTACK-ALL",
-        modifier: 300.0,
+        type: "ATTACK-SINGLE",
+        modifier: 250.0,
         effect: [
-            Slash,
+            Pierce,
         ]
     }
 ]

@@ -5,21 +5,21 @@ export const image = require("../../assets/characters/[Cursed Shackles] Purgator
 export const name = "Pierce and Strike"
 export const ranks = [
         {
-            type: "ATTACK",
+            type: "ATTACK-SINGLE",
             modifier: 200.0,
             effect: [
                 Frenzy,
             ]
         },
         {
-            type: "ATTACK",
+            type: "ATTACK-SINGLE",
             modifier: 300.0,
             effect: [
                 Frenzy,
             ]
         },
         {
-            type: "ATTACK",
+            type: "ATTACK-SINGLE",
             modifier: 500.0,
             effect: [
                 Frenzy,
