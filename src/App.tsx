@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  createBrowserRouter,
+  createHashRouter,
   Link,
   Outlet,
   RouterProvider,
@@ -56,7 +56,7 @@ const NavCrumb = () => {
   )
 };
 
-const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <Root />,
@@ -83,12 +83,6 @@ const router = createBrowserRouter([
     ]
   }
 ]);
-
-function App() {
-  return(
-      <RouterProvider router={router} />
-  )
-}
 
 function Root() {
   return(
@@ -148,5 +142,3 @@ function ToggleButton() {
     </div>
   )
 }
-
-export default App;
