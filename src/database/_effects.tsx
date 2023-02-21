@@ -1,6 +1,23 @@
 import { Popup } from 'semantic-ui-react'
 import { ThemeContext } from '../theme/theme-context';
 
+export const Poisons=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Additional damage equal to 60% of damage dealt at the end of every turn."
+        trigger={<span className={`effect ${theme.theme}`}>Poisons</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+
+export const RemoveDebuffs=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <span className={`effect ${theme.theme}`}>Remove Debuffs</span>
+    )}
+    </ThemeContext.Consumer>
+)
+
 export const AttackRelatedStatsIncrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
@@ -10,11 +27,45 @@ export const AttackRelatedStatsIncrease=()=> (
     </ThemeContext.Consumer>
 )
 
+export const CritChanceIncrease=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <span className={`effect ${theme.theme}`}>Crit Chance</span>
+    )}
+    </ThemeContext.Consumer>
+)
+
+export const CritDamageIncrease=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <span className={`effect ${theme.theme}`}>Crit Damage</span>
+    )}
+    </ThemeContext.Consumer>
+)
+
 export const Pierce=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <Popup content="3x Pierce Rate Increase."
         trigger={<span className={`effect ${theme.theme}`}>Pierce</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+
+export const WeakPoint=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="3x damage against Debuffed enemies."
+        trigger={<span className={`effect ${theme.theme}`}>Weak Point</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+
+export const SecretTechnique=(i: number)=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content={`+${i}% additional damage per hero skill.`}
+        trigger={<span className={`effect ${theme.theme}`}>Secret Technique</span>} />
     )}
     </ThemeContext.Consumer>
 )
@@ -96,6 +147,15 @@ export const TrueMagic=()=> (
     {(theme) => (
         <Popup content="Removes all Debuffs from self. Attack-related stats +50%." 
         trigger={<span className={`effect ${theme.theme}`}>True Magic</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+
+export const ApplicableAlly=(s: string)=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content={`${s}`}
+        trigger={<span className={`effect ${theme.theme}`}>Applicable ally</span>} />
     )}
     </ThemeContext.Consumer>
 )

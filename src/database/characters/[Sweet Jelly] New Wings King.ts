@@ -1,20 +1,20 @@
 import ICharacter from './_ICharacter';
 
-import Passive from '../passives/Curse of Purgatory';
-import Skill1 from '../skills/Meliodas/Chain Slash';
-import Skill2 from '../skills/Meliodas/Pierce and Strike';
-import Ultimate from '../skills/Meliodas/Trillion Dark';
+import Passive from '../passives/Please Accept It';
+import Skill1 from '../skills/King/Valentine\'s Gift';
+import Skill2 from '../skills/King/Rolling Macaroons';
+import Ultimate from '../skills/King/Tyrant Tempest';
 
 class Character implements ICharacter {
-    image = require('../../assets/characters/[Cursed Shackles] Purgatory Meliodas/portrait.png');
-    name = "Purgatory Meliodas";
-    title = "Cursed Shackles";
-    attribute = "Dark";
+    image = require('../../assets/characters/[Sweet Jelly] New Wings King/portrait.png');
+    name = "New Wings King";
+    title = "Sweet Jelly";
+    attribute = "HP";
     rarity = "SSR";
-    race = "Demon";
+    race = "Fairy";
     equipment = [
-        ["HP","Attack"],
-        ["Defense","Crit Damage"]
+        ["Attack","HP"],
+        ["Crit Damage","Defense"]
     ]
     basic = [
         680     /* Attack */,
@@ -226,11 +226,11 @@ class Character implements ICharacter {
     unique = new Passive();
     association = [];
     gender = 'Male';
-    blood = 'B';
-    age = '3000+';
-    height = '152 cm';
-    weight = '50 kg';
-    birthday: Date = new Date(0, 6, 25);
+    blood = 'AB';
+    age = '~1300';
+    height = '160 cm';
+    weight = '48 kg';
+    birthday: Date = new Date(0, 3, 1);
     
     food = [];
     gift = [];

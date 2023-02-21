@@ -1,5 +1,9 @@
 import ICharacter from './_ICharacter';
+
 import Passive from '../passives/Kneel Before Me';
+import Skill1 from '../skills/Freyja/Elegant Leopard';
+import Skill2 from '../skills/Freyja/Fascination Chain';
+import Ultimate from '../skills/Freyja/Aesthetic Overflow';
 
 class Character implements ICharacter {
     image = require('../../assets/characters/[Spellbinding Queen] Goddess of Beauty Freyja/portrait.png');
@@ -213,11 +217,11 @@ class Character implements ICharacter {
         ]
     ]
     skills = [
-        require('../skills/Elegant Leopard'),
-        require('../skills/Fascination Chain')
+        new Skill1(),
+        new Skill2()
     ]
     ultimate = [
-        require('../skills/Aesthetic Overflow')
+        new Ultimate()
     ]
     unique = new Passive();
     association = [];

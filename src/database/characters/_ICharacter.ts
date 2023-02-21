@@ -1,4 +1,5 @@
 import IPassive from "../passives/_IPassive";
+import ISkill from "../skills/_ISkill";
 
 interface ICharacter {
     image: Node;
@@ -14,8 +15,8 @@ interface ICharacter {
     awakening: number[][];
     superawakening: number[][];
 
-    skills: Node[];
-    ultimate: Node[];
+    skills: ISkill[];
+    ultimate: ISkill[];
     unique: IPassive;
     association: any[];
 

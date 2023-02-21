@@ -3,7 +3,7 @@ interface IPassive {
     name: string;
     effects: any[];
 
-    getDescription(): void;
+    getDescription(): JSX.Element;
 }
 
 export default IPassive;

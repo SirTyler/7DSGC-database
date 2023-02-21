@@ -96,12 +96,16 @@ class Database extends Component {
         <ThemeContext.Consumer>
             {(theme) => (
             <>
-                <h2>New Characters</h2>
+                <h2>Latest Characters</h2>
                 <Grid columns='2' stackable  className={theme.theme}>
                     {latest}
                 </Grid>
                 <Divider />
-                <input type="text" name="filterText" onChange={this.stateChange} />
+                <Segment className={theme.theme}>
+                  <label>Search: </label>
+                  <input type="text" name="filterText" onChange={this.stateChange} />
+                </Segment>
+                <br />
                 <Grid columns='3' stackable>
                     {data.filter(character => character.name.includes(this.state.filterText.toLowerCase())).map(filter => (
                     <>
