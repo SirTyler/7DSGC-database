@@ -5,7 +5,6 @@ import ISkill, { IRank } from "../_ISkill";
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Sweet Jelly] New Wings King/ultimate.png");
     name = "Tyrant Tempest"
-    extra = [];
 
     ranks = [
         new IRank("ULTIMATE", 300.0, [Abyss(30.0)]),

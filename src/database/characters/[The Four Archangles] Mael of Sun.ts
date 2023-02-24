@@ -1,48 +1,49 @@
 import ICharacter from './_ICharacter';
 
-import Passive from '../passives/Shadow Assault';
-import Skill1 from '../skills/Mono/Slash Master';
-import Skill2 from '../skills/Mono/All Clear';
-import Ultimate from '../skills/Mono/Full Ejection';
+import Passive from '../passives/Judgement of Light';
+import Grace from '../passives/Grace/Grace of Sun';
+import Skill1 from '../skills/Mael/Sun Cutter';
+import Skill2 from '../skills/Mael/Solar Ray';
+import Ultimate from '../skills/Mael/Rising Sun';
 
 class Character implements ICharacter {
-    image = require('../../assets/characters/[Full Moon Shadow] Iron Blood Mono/portrait.png');
-    name = "Iron Blood Mono";
-    title = "Full Moon Shadow";
-    attribute = "Speed";
+    image = require('../../assets/characters/[The Four Archangles] Mael of Sun/portrait.png');
+    name = "Mael of Sun";
+    title = "The Four Archangles";
+    attribute = "Light";
     rarity = "SSR";
-    race = "Human";
+    race = "Goddess";
     equipment = [
-        ["Attack"],
-        ["Crit Damage"]
+        ["Attack","HP"],
+        ["Crit Damage","Defense"]
     ]
     basic = [
-        540 /* Attack */,
-        310 /* Defense */,
-        5500 /* HP */,
-        40 /* Pierce Rate */,
-        45 /* Resistance */,
-        5 /* Regeneration */,
-        95 /* Crit Chance */,
-        170 /* Crit Damage */,
-        60 /* Crit Resistance */,
-        50 /* Crit Defense */,
+        680 /* Attack */,
+        420 /* Defense */,
+        7000 /* HP */,
+        90 /* Pierce Rate */,
+        55 /* Resistance */,
+        0 /* Regeneration */,
+        100 /* Crit Chance */,
+        190 /* Crit Damage */,
+        75 /* Crit Resistance */,
+        80 /* Crit Defense */,
         110 /* Recovery Rate */,
-        15 /* Lifesteal */
+        10 /* Lifesteal */
     ]
     stats = [
-        4708 /* Attack */,
-        3588 /* Defense */,
-        62450 /* HP */,
-        40 /* Pierce Rate */,
-        45 /* Resistance */,
-        5 /* Regeneration */,
-        95 /* Crit Chance */,
-        70 /* Crit Damage */,
-        60 /* Crit Resistance */,
-        50 /* Crit Defense */,
+        5850 /* Attack */,
+        3648 /* Defense */,
+        64440 /* HP */,
+        90 /* Pierce Rate */,
+        55 /* Resistance */,
+        0 /* Regeneration */,
+        100 /* Crit Chance */,
+        90 /* Crit Damage */,
+        75 /* Crit Resistance */,
+        80 /* Crit Defense */,
         110 /* Recovery Rate */,
-        15 /* Lifesteal */
+        10 /* Lifesteal */
     ]
     awakening = [
         [
@@ -57,9 +58,8 @@ class Character implements ICharacter {
             2 /* Crit Resistance */,
             0 /* Crit Defense */,
             4.5 /* Recovery Rate */,
-            0 /* Lifesteal */
-        ],
-        [
+            0 /* Lifesteal */,
+        ],[
             360 /* Attack */,
             144 /* Defense */,
             0 /* HP */,
@@ -71,9 +71,8 @@ class Character implements ICharacter {
             0 /* Crit Resistance */,
             0 /* Crit Defense */,
             0 /* Recovery Rate */,
-            0 /* Lifesteal */
-        ],
-        [
+            0 /* Lifesteal */,
+        ],[
             0 /* Attack */,
             0 /* Defense */,
             2800 /* HP */,
@@ -85,9 +84,8 @@ class Character implements ICharacter {
             0 /* Crit Resistance */,
             5 /* Crit Defense */,
             0 /* Recovery Rate */,
-            0 /* Lifesteal */
-        ],
-        [ 
+            0 /* Lifesteal */,
+        ],[
             480 /* Attack */,
             192 /* Defense */,
             0 /* HP */,
@@ -99,9 +97,8 @@ class Character implements ICharacter {
             0 /* Crit Resistance */,
             0 /* Crit Defense */,
             0 /* Recovery Rate */,
-            0 /* Lifesteal */    
-        ],
-        [
+            0 /* Lifesteal */,
+        ],[
             0 /* Attack */,
             0 /* Defense */,
             3500 /* HP */,
@@ -113,9 +110,8 @@ class Character implements ICharacter {
             0 /* Crit Resistance */,
             0 /* Crit Defense */,
             0 /* Recovery Rate */,
-            3 /* Lifesteal */ 
-        ],
-        [ 
+            3 /* Lifesteal */,
+        ],[
             600 /* Attack */,
             240 /* Defense */,
             0 /* HP */,
@@ -127,14 +123,14 @@ class Character implements ICharacter {
             0 /* Crit Resistance */,
             0 /* Crit Defense */,
             0 /* Recovery Rate */,
-            0 /* Lifesteal */
+            0 /* Lifesteal */,
         ]
     ]
     superawakening = [
         [
             0 /* Attack */,
             0 /* Defense */,
-            6250 /* HP */,
+            5650 /* HP */,
             0 /* Pierce Rate */,
             0 /* Resistance */,
             0 /* Regeneration */,
@@ -142,11 +138,10 @@ class Character implements ICharacter {
             0 /* Crit Damage */,
             9 /* Crit Resistance */,
             0 /* Crit Defense */,
-            12 /* Recovery Rate */,
-            0 /* Lifesteal */
-        ],
-        [
-            150 /* Attack */,
+            9 /* Recovery Rate */,
+            0 /* Lifesteal */,
+        ],[
+            180 /* Attack */,
             160 /* Defense */,
             0 /* HP */,
             0 /* Pierce Rate */,
@@ -157,23 +152,21 @@ class Character implements ICharacter {
             0 /* Crit Resistance */,
             0 /* Crit Defense */,
             0 /* Recovery Rate */,
-            0 /* Lifesteal */
-        ],
-        [
+            0 /* Lifesteal */,
+        ],[
             0 /* Attack */,
             0 /* Defense */,
-            8750 /* HP */,
+            8150 /* HP */,
             0 /* Pierce Rate */,
             0 /* Resistance */,
-            40 /* Regeneration */,
+            30 /* Regeneration */,
             0 /* Crit Chance */,
             0 /* Crit Damage */,
             0 /* Crit Resistance */,
             9 /* Crit Defense */,
             0 /* Recovery Rate */,
-            0 /* Lifesteal */
-        ],
-        [ 
+            0 /* Lifesteal */,
+        ],[
             540 /* Attack */,
             480 /* Defense */,
             0 /* HP */,
@@ -185,9 +178,8 @@ class Character implements ICharacter {
             0 /* Crit Resistance */,
             0 /* Crit Defense */,
             0 /* Recovery Rate */,
-            0 /* Lifesteal */ 
-        ],
-        [
+            0 /* Lifesteal */,
+        ],[
             0 /* Attack */,
             0 /* Defense */,
             0 /* HP */,
@@ -199,12 +191,11 @@ class Character implements ICharacter {
             0 /* Crit Resistance */,
             9 /* Crit Defense */,
             0 /* Recovery Rate */,
-            0 /* Lifesteal */  
-        ],
-        [ 
-            300 /* Attack */,
+            0 /* Lifesteal */,
+        ],[
+            360 /* Attack */,
             320 /* Defense */,
-            12000 /* HP */,
+            11000 /* HP */,
             0 /* Pierce Rate */,
             0 /* Resistance */,
             0 /* Regeneration */,
@@ -213,7 +204,7 @@ class Character implements ICharacter {
             0 /* Crit Resistance */,
             0 /* Crit Defense */,
             0 /* Recovery Rate */,
-            0 /* Lifesteal */
+            0 /* Lifesteal */,
         ]
     ]
     skills = [
@@ -224,14 +215,14 @@ class Character implements ICharacter {
         new Ultimate()
     ]
     unique = new Passive();
-    grace = null;
+    grace = new Grace();
     association = [];
-    gender = 'Female';
-    blood = 'AB';
-    age = 'Unknown';
-    height = '178 cm';
-    weight = '62 kg';
-    birthday: Date = new Date(0, 8, 24);
+    gender = 'Male';
+    blood = 'O';
+    age = '3500';
+    height = '187 cm';
+    weight = '90 kg';
+    birthday: Date = new Date(0, 0, 14);
     
     food = [];
     gift = [];

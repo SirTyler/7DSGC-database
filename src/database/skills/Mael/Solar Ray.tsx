@@ -1,15 +1,15 @@
 import { ThemeContext } from "../../../theme/theme-context";
-import { Frenzy } from "../../_effects";
+import { MarkOfBlackDot, Spike } from "../../_effects";
 import ISkill, { IRank } from "../_ISkill";
 
 class Skill implements ISkill {
-    image = require("../../../assets/characters/[Cursed Shackles] Purgatory Meliodas/skill_1.png");
-    name = "Pierce and Strike"
+    image = require("../../../assets/characters/[The Four Archangles] Mael of Sun/skill_2.png");
+    name = "Solar Ray"
 
     ranks = [
-        new IRank("ATTACK-SINGLE", 200.0, [Frenzy()]),
-        new IRank("ATTACK-SINGLE", 300.0, [Frenzy()]),
-        new IRank("ATTACK-SINGLE", 500.0, [Frenzy()])
+        new IRank("ATTACK-ALL", 100.0, [Spike(), MarkOfBlackDot()], [2]),
+        new IRank("ATTACK-ALL", 150.0, [Spike(), MarkOfBlackDot()], [2]),
+        new IRank("ATTACK-ALL", 250.0, [Spike(), MarkOfBlackDot()], [3])
     ];
 
     getDescription(rankIndex: number) {
@@ -19,7 +19,7 @@ class Skill implements ISkill {
                 <>
                     Inflicts {this.ranks[rankIndex].effect[0]} damage equal to
                     <span className={`damage ${theme.theme}`}> {`${this.ranks[rankIndex].modifier}%`} </span>
-                    of Attack on one enemies.
+                    of Attack on all enemies. Applies {this.ranks[rankIndex].effect[1]} for <span className={`effect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[0]}`} turn(s).</span>
                 </>
             )}
             </ThemeContext.Consumer>

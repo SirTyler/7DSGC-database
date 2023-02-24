@@ -224,6 +224,7 @@ class Character implements ICharacter {
         new Ultimate()
     ]
     unique = new Passive();
+    grace = null;
     association = [];
     gender = 'Female';
     blood = 'Unknown';

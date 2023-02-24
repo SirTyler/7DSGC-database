@@ -5,7 +5,6 @@ import ISkill, { IRank } from "../_ISkill";
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Full Moon Shadow] Iron Blood Mono/ultimate.png")
     name = "Full Ejection";
-    extra = [];
 
     ranks = [
         new IRank("ULTIMATE", 300.0, [SecretTechnique(20)]),

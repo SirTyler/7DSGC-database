@@ -5,7 +5,6 @@ import ISkill, { IRank } from "../_ISkill";
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Cursed Shackles] Purgatory Meliodas/ultimate.png");
     name = "Trillion Dark";
-    extra = [];
 
     ranks = [
         new IRank("ULTIMATE", 500.0, [MagicBurst(),SurpressDamageTaken()], [1]),

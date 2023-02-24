@@ -5,7 +5,6 @@ import ISkill, { IRank } from "../_ISkill";
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Cursed Shackles] Purgatory Meliodas/skill_2.png")
     name = "Chain Slash";
-    extra = [];
 
     ranks = [
         new IRank("ATTACK-ALL", 120.0, [Slash()]),

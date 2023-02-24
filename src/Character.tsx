@@ -18,18 +18,18 @@ import { ThemeContext } from './theme/theme-context';
 import ICharacter from "./database/characters/_ICharacter";
 
 const limit = [
-    8538,
-    7606,
-    104090,
-    116,
-    73,
-    93,
-    129,
-    136.5,
-    103.0,
-    111.5,
-    166.5,
-    54.0
+    8538    /* Attack */,
+    7606    /* Defense */,
+    104090  /* HP */,
+    116     /* Pierce Rate */,
+    73      /* Resistance */,
+    93      /* Regeneration */,
+    129     /* Crit Chance */,
+    136.5   /* Crit Damage */,
+    103     /* Crit Resistance */,
+    111.5   /* Crit Defense */,
+    166.5   /* Recovery Rate */,
+    54      /* Lifesteal */
 ];
 
 const stat_header = [
@@ -224,6 +224,7 @@ export default function Character() {
                     </Segment>
                 </Grid.Column>
                 <Grid.Column width={4}>
+                    {buildGrace(character.grace, true)}
                     <Segment className={theme.theme}>
                         {buildTable("Awakening", character.awakening, ["★1","★2","★3","★4","★5","★6"], stat_header, 'right', false, true)}
                     </Segment>
@@ -491,6 +492,72 @@ function buildPassive(passive: any, vertical: boolean) {
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
+            )}
+          </ThemeContext.Consumer>
+        );
+    }
+}
+
+function buildGrace(passive: any, vertical: boolean) {
+    if (passive === null) return;
+
+    if (vertical) {
+        return(
+            <ThemeContext.Consumer>
+            {(theme) => (
+                <Segment className={theme.theme}>
+                <Grid columns='equal'>
+                  <Grid.Row stretched>
+                      <Grid.Column>
+                          <Image src={passive.image} floated='left' centered rounded />
+                      </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                      <Grid.Column>
+                          <Table compact size='small' className={theme.theme}>
+                              <Table.Header>
+                                  <Table.Row>
+                                      <Table.HeaderCell colSpan='2'>{passive.name}</Table.HeaderCell>
+                                  </Table.Row>
+                              </Table.Header>
+          
+                              <Table.Body>
+                                    {passive.getDescription()}
+                              </Table.Body>
+                          </Table>
+                      </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+                </Segment>
+            )}
+          </ThemeContext.Consumer>
+        );
+    } else {
+        return(
+            <ThemeContext.Consumer>
+            {(theme) => (
+            <Segment className={theme.theme}>
+            <Grid columns='equal'>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Image src={passive.image} floated='left' rounded/>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Table compact size='small' className={theme.theme}>
+                            <Table.Header>
+                                <Table.Row>
+                                    <Table.HeaderCell colSpan='2'>{passive.name}</Table.HeaderCell>
+                                </Table.Row>
+                            </Table.Header>
+
+                            <Table.Body>
+                                {passive.getDescription}
+                            </Table.Body>
+                        </Table>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+            </Segment>
             )}
           </ThemeContext.Consumer>
         );

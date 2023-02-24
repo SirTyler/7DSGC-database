@@ -18,6 +18,7 @@ interface ICharacter {
     skills: ISkill[];
     ultimate: ISkill[];
     unique: IPassive;
+    grace: IPassive | null;
     association: any[];
 
     gender: string;

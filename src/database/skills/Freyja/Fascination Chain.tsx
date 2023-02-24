@@ -5,7 +5,6 @@ import ISkill, { IRank } from "../_ISkill";
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Spellbinding Queen] Goddess of Beauty Freyja/skill_2.png");
     name = "Fascination Chain"
-    extra = [];
 
     ranks = [
         new IRank("ATTACK-ALL", 100.0, [Pierce()]),
