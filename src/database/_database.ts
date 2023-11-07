@@ -4,6 +4,7 @@ import cAlbedo from "./characters/[Pure-White Devil] Albedo";
 import cAinz from "./characters/[Ruler of Nazarick] Ainz Ooal Gown";
 import cShalltear from "./characters/[Bloody Valkyrie] Shalltear Bloodfallen";
 import cCocytus from "./characters/[Guardian of the Glacier] Cocytus";
+import cWitchMerlin from "./characters/[Witch of the Snow] Truth Seeker Merlin";
 import cMael from "./characters/[The Four Archangles] Mael of Sunshine";
 import cValentinesKing from "./characters/[Sweet Jelly] New Wings King";
 import cFreyja from "./characters/[Spellbinding Queen] Goddess of Beauty Freyja";
@@ -23,6 +24,7 @@ export const database: ICharacter[] = [
     new cAinz(),
     new cShalltear(),
     new cCocytus(),
+    new cWitchMerlin(),
     new cMael(),
     new cValentinesKing(),
     new cFreyja(),
