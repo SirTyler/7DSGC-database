@@ -7,8 +7,8 @@ import Ultimate from '../skills/Merlin/Frost Blast';
 
 class Character implements ICharacter {
     image = require('../../assets/characters/[Witch of the Snow] Truth Seeker Merlin/portrait.png');
-    sort = "Merlin";
-    s_name = "Merlin, Truth Seeker";
+    sort = "Merlin, Truth Seeker";
+    s_name = "Truth Seeker Merlin";
     name = "Truth Seeker Merlin";
     title = "Witch of the Snow";
     attribute = "Strength";
