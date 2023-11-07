@@ -12,7 +12,7 @@ class Skill implements ISkill {
         new IRank("ULTIMATE", 600.0, [MagicBurst(),SurpressDamageTaken()], [1]),
         new IRank("ULTIMATE", 650.0, [MagicBurst(),SurpressDamageTaken()], [1]),
         new IRank("ULTIMATE", 700.0, [MagicBurst(),SurpressDamageTaken()], [1]),
-        new IRank("ULTIMATE", 750.0, [MagicBurst(),SurpressDamageTaken()], [2]),
+        new IRank("ULTIMATE", 750.0, [MagicBurst(),SurpressDamageTaken()], [2])
     ];
 
     getDescription(rankIndex: number) {
@@ -22,9 +22,8 @@ class Skill implements ISkill {
                 <>
                     Inflicts {this.ranks[rankIndex].effect[0]} damage equal to
                     <span className={`damage ${theme.theme}`}> {`${this.ranks[rankIndex].modifier}%`} </span>
-                    of Attack on all enemies, then 
-                    {this.ranks[rankIndex].effect[1]} on self for
-                    <span className={`damage ${theme.theme}`}> {`${this.ranks[rankIndex].extra[0]} turn(s).`} </span>
+                    of Attack on all enemies, then {this.ranks[rankIndex].effect[1]} on self for
+                    <span className={`subeffect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[0]} turn(s).`} </span>
                 </>
             )}
             </ThemeContext.Consumer>

@@ -11,18 +11,28 @@ html, body, .App {
   font-weight: bolder;
 }
 .effect:not(.inverted) {
-  color: rgb(0, 0, 255);
+  color: darkblue;
 }
 .effect:is(.inverted) {
-  color: rgb(0, 0, 100);
+  color: darkcyan;
+}
+
+.subeffect {
+  font-weight: bolder;
+}
+.subeffect:not(.inverted) {
+  color: darkcyan;
+}
+.subeffect:is(.inverted) {
+  color: #00d4fe;
 }
 
 .damage {
   font-weight: bolder;
 }
 .damage:not(.inverted) {
-  color: black;
+  color: darkgoldenrod;
 }
 .damage:is(.inverted) {
-  color: slategray;
+  color: goldenrod;
 }

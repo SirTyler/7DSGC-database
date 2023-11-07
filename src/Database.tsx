@@ -30,7 +30,7 @@ class Database extends Component {
         data.length = 0;
         database.forEach(character => {
             let c = {
-              name: character.name.toLowerCase(),
+              name: character.sort.toLowerCase(),
               display: (
               <ThemeContext.Consumer>
                 {(theme) => (
@@ -41,7 +41,7 @@ class Database extends Component {
                       <Header.Subheader className={theme.theme}>
                         [{character.title}]
                       </Header.Subheader>
-                      {character.name}
+                      {character.s_name}
                     </Header>
                 </Segment>
                 </Grid.Column>

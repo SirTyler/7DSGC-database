@@ -3,7 +3,7 @@ import { Conflagration } from "../../_effects";
 import ISkill, { IRank } from "../_ISkill";
 
 class Skill implements ISkill {
-    image = require("../../../assets/characters/[The Four Archangles] Mael of Sun/skill_1.png");
+    image = require("../../../assets/characters/[The Four Archangles] Mael of Sunshine/skill_1.png");
     name = "Sun Cutter"
 
     ranks = [

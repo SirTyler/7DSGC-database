@@ -7,6 +7,8 @@ import Ultimate from '../skills/King/Tyrant Tempest';
 
 class Character implements ICharacter {
     image = require('../../assets/characters/[Sweet Jelly] New Wings King/portrait.png');
+    sort = "King, New Wings";
+    s_name = "New Wings King";
     name = "New Wings King";
     title = "Sweet Jelly";
     attribute = "HP";

@@ -7,6 +7,8 @@ import Ultimate from '../skills/Meliodas/Trillion Dark';
 
 class Character implements ICharacter {
     image = require('../../assets/characters/[Cursed Shackles] Purgatory Meliodas/portrait.png');
+    sort = "Meliodas, Purgatory";
+    s_name = "Purgatory Meliodas";
     name = "Purgatory Meliodas";
     title = "Cursed Shackles";
     attribute = "Dark";

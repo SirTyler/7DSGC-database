@@ -12,7 +12,7 @@ class Skill implements ISkill {
         new IRank("ULTIMATE", 360.0, [SecretTechnique(36)]),
         new IRank("ULTIMATE", 390.0, [SecretTechnique(44)]),
         new IRank("ULTIMATE", 420.0, [SecretTechnique(52)]),
-        new IRank("ULTIMATE", 450.0, [SecretTechnique(60)]),
+        new IRank("ULTIMATE", 450.0, [SecretTechnique(60)])
     ];
 
     getDescription(rankIndex: number) {

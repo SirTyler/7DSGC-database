@@ -12,7 +12,7 @@ class Skill implements ISkill {
         new IRank("ULTIMATE", 360.0, [Abyss(42.0)]),
         new IRank("ULTIMATE", 390.0, [Abyss(48.0)]),
         new IRank("ULTIMATE", 420.0, [Abyss(54.0)]),
-        new IRank("ULTIMATE", 450.0, [Abyss(60.0)]),
+        new IRank("ULTIMATE", 450.0, [Abyss(60.0)])
     ];
 
     getDescription(rankIndex: number) {
@@ -21,7 +21,7 @@ class Skill implements ISkill {
             {(theme) => (
                 <>
                     Inflicts damage equal to <span className={`damage ${theme.theme}`}> {`${this.ranks[rankIndex].modifier}%`} </span> of Attack on all enemies.
-                    The hero gains {this.ranks[rankIndex].effect[0]} effect on self for <span className={`effect ${theme.theme}`}> 2 turn(s). </span>
+                    The hero gains {this.ranks[rankIndex].effect[0]} effect on self for <span className={`subeffect ${theme.theme}`}> 2 turns. </span>
                 </>
             )}
             </ThemeContext.Consumer>

@@ -7,6 +7,8 @@ import Ultimate from '../skills/Mono/Full Ejection';
 
 class Character implements ICharacter {
     image = require('../../assets/characters/[Full Moon Shadow] Iron Blood Mono/portrait.png');
+    sort = "Mono, Iron Blood";
+    s_name = "Iron Blood Mono";
     name = "Iron Blood Mono";
     title = "Full Moon Shadow";
     attribute = "Speed";

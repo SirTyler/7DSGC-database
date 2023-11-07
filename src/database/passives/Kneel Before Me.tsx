@@ -15,7 +15,7 @@ class Passive implements IPassive {
             {(theme) => (
                 <div style={{padding: "5px"}}>
                     Increases the hero's {this.effects[0]} by <span className={`damage ${theme.theme}`}> 7% </span> for every ally on the battlefield with the <span className={`effect ${theme.theme}`}>{`<Ragnarok>`} characteristic</span>.
-                    Increases allies' Pierce Rate by <span className={`damage ${theme.theme}`}> 4% </span> for every Debuff applied to enemies, up to <span className={`damage ${theme.theme}`}> 5 </span> times.
+                    Increases allies' Pierce Rate by <span className={`damage ${theme.theme}`}> 4% </span> for every Debuff applied to enemies, up to <span className={`subeffect ${theme.theme}`}> 5 times</span>.
                 </div>
             )}
             </ThemeContext.Consumer>

@@ -7,6 +7,8 @@ import Ultimate from '../skills/Freyja/Aesthetic Overflow';
 
 class Character implements ICharacter {
     image = require('../../assets/characters/[Spellbinding Queen] Goddess of Beauty Freyja/portrait.png');
+    sort = "Freyja";
+    s_name = "Freyja";
     name = "Goddess of Beauty Freyja";
     title = "Spellbinding Queen";
     attribute = "Strength";

@@ -11,7 +11,7 @@ class Passive implements IPassive {
             <ThemeContext.Consumer>
             {(theme) => (
                 <div style={{padding: "5px"}}>
-                    Increases <span className={`effect ${theme.theme}`}>{`<The Seven Catastrophes> allies`}</span> basic stats by <span className={`damage ${theme.theme}`}>6%</span> for each <span className={`effect ${theme.theme}`}>{`<The Seven Catastrophes> ally`}</span> on the battlefield in <span className={`effect ${theme.theme}`}>PVP</span>.
+                    Increases <span className={`effect ${theme.theme}`}>{`<The Seven Catastrophes> allies`}</span> basic stats by <span className={`damage ${theme.theme}`}>6%</span> for each <span className={`effect ${theme.theme}`}>{`<The Seven Catastrophes> ally`}</span> on the battlefield in <span className={`subeffect ${theme.theme}`}>PVP</span>.
                     Increases the hero's damage dealt by their Crit Chance <span className={`effect ${theme.theme}`}>at the start of battle</span>.
                 </div>
             )}

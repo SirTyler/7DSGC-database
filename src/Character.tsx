@@ -18,14 +18,14 @@ import { ThemeContext } from './theme/theme-context';
 import ICharacter from "./database/characters/_ICharacter";
 
 const limit = [
-    8538    /* Attack */,
+    9049    /* Attack */,
     7606    /* Defense */,
-    104090  /* HP */,
+    109520  /* HP */,
     116     /* Pierce Rate */,
-    73      /* Resistance */,
+    83.0     /* Resistance */,
     93      /* Regeneration */,
-    129     /* Crit Chance */,
-    136.5   /* Crit Damage */,
+    136     /* Crit Chance */,
+    145.5   /* Crit Damage */,
     103     /* Crit Resistance */,
     111.5   /* Crit Defense */,
     166.5   /* Recovery Rate */,
@@ -240,13 +240,15 @@ export default function Character() {
                     </Segment>
                 </Grid.Column>
             </Grid.Row>
+            {character.birthday != null &&
             <Grid.Row stretched>
                 <Grid.Column>
                     <Segment className={theme.theme}>
-                        {character.birthday.toLocaleDateString('default', {month: 'long', day: 'numeric'})}
+                        Birthday: {character.birthday.toLocaleDateString('default', {month: 'long', day: 'numeric'})}
                     </Segment>
                 </Grid.Column>
             </Grid.Row>
+            }
         </Grid>
         </>
           )}
@@ -338,7 +340,7 @@ function buildTable(title: string, data: any[], header: string[], subheader: str
                     content.push(
                         <Table.Row>
                             {header.length > 0 && <Table.Cell rowSpan={data[index].length}>{header[index]}</Table.Cell>}
-                            <Table.Cell style={{textAlign: text_align}}>{(data[index])}</Table.Cell>
+                            <Table.Cell style={{textAlign: text_align}}>{(data[index]).toLocaleString("en-US")}</Table.Cell>
                         </Table.Row>
                     )
                 }
@@ -346,7 +348,7 @@ function buildTable(title: string, data: any[], header: string[], subheader: str
                 content.push(
                     <Table.Row>
                         {header.length > 0 && <Table.Cell rowSpan={data[index].length}>{header[index]}</Table.Cell>}
-                        <Table.Cell style={{textAlign: text_align}}>{(data[index])}</Table.Cell>
+                        <Table.Cell style={{textAlign: text_align}}>{(data[index]).toLocaleString("en-US")}</Table.Cell>
                     </Table.Row>
                 )
             }

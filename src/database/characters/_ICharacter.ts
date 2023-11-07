@@ -3,6 +3,8 @@ import ISkill from "../skills/_ISkill";
 
 interface ICharacter {
     image: Node;
+    sort: string;
+    s_name: string;
     name: string;
     title: string;
     attribute: string;
@@ -26,7 +28,7 @@ interface ICharacter {
     age: string;
     height: string;
     weight: string;
-    birthday: Date;
+    birthday: Date | null;
     food: any[];
     gift: any[];
 }

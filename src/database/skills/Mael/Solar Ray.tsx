@@ -3,7 +3,7 @@ import { MarkOfBlackDot, Spike } from "../../_effects";
 import ISkill, { IRank } from "../_ISkill";
 
 class Skill implements ISkill {
-    image = require("../../../assets/characters/[The Four Archangles] Mael of Sun/skill_2.png");
+    image = require("../../../assets/characters/[The Four Archangles] Mael of Sunshine/skill_2.png");
     name = "Solar Ray"
 
     ranks = [
@@ -19,7 +19,7 @@ class Skill implements ISkill {
                 <>
                     Inflicts {this.ranks[rankIndex].effect[0]} damage equal to
                     <span className={`damage ${theme.theme}`}> {`${this.ranks[rankIndex].modifier}%`} </span>
-                    of Attack on all enemies. Applies {this.ranks[rankIndex].effect[1]} for <span className={`effect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[0]}`} turn(s).</span>
+                    of Attack on all enemies. Applies {this.ranks[rankIndex].effect[1]} for <span className={`subeffect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[0]}`} turns</span>.
                 </>
             )}
             </ThemeContext.Consumer>

@@ -41,7 +41,7 @@ export const AttackRelatedStatsIncrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <Popup content="Attack, Pierce Rate, Crit Chance, and Crit Damage"
-        trigger={<span className={`effect ${theme.theme}`}>Attack-related stats</span>} />
+        trigger={<span className={`effect ${theme.theme}`}>Attack-related Stats</span>} />
     )}
     </ThemeContext.Consumer>
 )
@@ -49,7 +49,7 @@ export const DefenseRelatedStatsIncrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <Popup content="Defense, Resistance, Crit Resistance, and Crit Defense"
-        trigger={<span className={`effect ${theme.theme}`}>Defense-related stats</span>} />
+        trigger={<span className={`effect ${theme.theme}`}>Defense-related Stats</span>} />
     )}
     </ThemeContext.Consumer>
 )
@@ -57,7 +57,7 @@ export const HPRelatedStatsIncrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <Popup content="Recovery, Regeneration, Lifesteal, and HP"
-        trigger={<span className={`effect ${theme.theme}`}>HP-related stats</span>} />
+        trigger={<span className={`effect ${theme.theme}`}>HP-related Stats</span>} />
     )}
     </ThemeContext.Consumer>
 )
@@ -65,7 +65,7 @@ export const BasicStatsIncrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <Popup content="Attack, Defense, HP"
-        trigger={<span className={`effect ${theme.theme}`}>Basic stats</span>} />
+        trigger={<span className={`effect ${theme.theme}`}>Basic Stats</span>} />
     )}
     </ThemeContext.Consumer>
 )
@@ -110,7 +110,7 @@ export const AttackRelatedStatsDecrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <Popup content="Attack, Pierce Rate, Crit Chance, and Crit Damage"
-        trigger={<span className={`effect ${theme.theme}`}>Attack-related stats</span>} />
+        trigger={<span className={`effect ${theme.theme}`}>Attack-related Stats</span>} />
     )}
     </ThemeContext.Consumer>
 )
@@ -118,7 +118,7 @@ export const DefenseRelatedStatsDecrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <Popup content="Defense, Resistance, Crit Resistance, and Crit Defense"
-        trigger={<span className={`effect ${theme.theme}`}>Defense-related stats</span>} />
+        trigger={<span className={`effect ${theme.theme}`}>Defense-related Stats</span>} />
     )}
     </ThemeContext.Consumer>
 )
@@ -126,7 +126,7 @@ export const HPRelatedStatsDecrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <Popup content="Recovery, Regeneration, Lifesteal, and HP"
-        trigger={<span className={`effect ${theme.theme}`}>HP-related stats</span>} />
+        trigger={<span className={`effect ${theme.theme}`}>HP-related Stats</span>} />
     )}
     </ThemeContext.Consumer>
 )
@@ -143,7 +143,16 @@ export const DamageDealtIncrease=(i: number)=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <>
-            <span className={`effect ${theme.theme}`}>Increase damage dealt</span> by <span className={`effect ${theme.theme}`}>{`${i}%`}</span>
+            <span className={`effect ${theme.theme}`}>Increase damage dealt</span> by <span className={`damage ${theme.theme}`}>{`${i}%`}</span>
+        </>
+    )}
+    </ThemeContext.Consumer>
+)
+export const DamageDealtDecrease=(i: number)=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <>
+            <span className={`effect ${theme.theme}`}>Decreases damage dealt</span> by <span className={`damage ${theme.theme}`}>{`${i}%`}</span>
         </>
     )}
     </ThemeContext.Consumer>
@@ -152,7 +161,7 @@ export const DamageTakenDecrease=(i: number)=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <>
-            <span className={`effect ${theme.theme}`}>Decrease damage taken</span> by <span className={`effect ${theme.theme}`}>{`${i}%`}</span>
+            <span className={`effect ${theme.theme}`}>Decrease damage taken</span> by <span className={`damage ${theme.theme}`}>{`${i}%`}</span>
         </>
     )}
     </ThemeContext.Consumer>
@@ -161,7 +170,7 @@ export const UltimateDamageDecrease=(i: number)=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <>
-            <span className={`effect ${theme.theme}`}>Decrease Ultimate Move damage</span> by <span className={`effect ${theme.theme}`}>{`${i}%`}</span>
+            <span className={`effect ${theme.theme}`}>Decrease Ultimate Move damage</span> by <span className={`damage ${theme.theme}`}>{`${i}%`}</span>
         </>
     )}
     </ThemeContext.Consumer>
@@ -235,14 +244,73 @@ export const Heal=()=> (
     )}
     </ThemeContext.Consumer>
 )
+export const Lifesteals=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Heals for a portion of damage dealt." 
+        trigger={<span className={`effect ${theme.theme}`}>Lifesteals</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
 
 /* Immunity */
 
+/* Status */
+export const Shocks=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Additional damage equal to 30% of damage dealt at the end of every turn."
+        trigger={<span className={`effect ${theme.theme}`}>Shocks</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
 export const Poisons=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
-        <Popup content="Additional damage equal to 60% of damage dealt at the end of every turn."
+        <Popup content="Additional damage equal to 50% of damage dealt at the end of every turn."
         trigger={<span className={`effect ${theme.theme}`}>Poisons</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const Bleeds=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Additional damage equal to 80% of damage dealt at the end of every turn."
+        trigger={<span className={`effect ${theme.theme}`}>Bleeds</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+
+/* Effects */
+export const Amplify=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Damage dealt +30% per active Buff on self." 
+        trigger={<span className={`effect ${theme.theme}`}>Amplify</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const Taunt=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Directs all attacks to self." 
+        trigger={<span className={`effect ${theme.theme}`}>Taunt</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const Infects=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Restricts Recovery-related stats." 
+        trigger={<span className={`effect ${theme.theme}`}>Infects</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const Detonate=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="20% additional damage per orb in target's Ultimate Move Gauge." 
+        trigger={<span className={`effect ${theme.theme}`}>Detonate</span>} />
     )}
     </ThemeContext.Consumer>
 )
@@ -400,6 +468,64 @@ export const BlackDotBurst=(i: number)=> (
     </ThemeContext.Consumer>
 )
 
+
+export const Quell=(i: number)=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content={`Damage dealt +${i}% per active Stance on self.`} 
+        trigger={<span className={`effect ${theme.theme}`}>Quell</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+
+export const AbsoluteDefense=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Taunts enemies and decreases damage taken by 50%."
+        trigger={<span className={`effect ${theme.theme}`}>Absolute Defense</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const Verdict=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="+40% damage for every Deathbrand on target." 
+        trigger={<span className={`effect ${theme.theme}`}>Verdict</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const Deathbrand=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Decreases damage dealt and all-target Ultimate Move final damage in PVP (amount decreased varies based on Ultimate Move level, stacks up to 4 times)." 
+        trigger={<span className={`effect ${theme.theme}`}>Deathbrand</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const DeathSentence=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Inflicts additional damage equal to 100% of remaining HP at end of the turn, also removes Deathbrand when removed." 
+        trigger={<span className={`effect ${theme.theme}`}>Death Sentence</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const Exploit=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="2x Damage Dealt and 2x Crit Damage against targets suffering Bleed."
+        trigger={<span className={`effect ${theme.theme}`}>Exploit</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const Berserk=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Attack-related stats +50%, Defense-related stats -30%. Restores 40% Max HP when removed."
+        trigger={<span className={`effect ${theme.theme}`}>Exploit</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
 
 export const ApplicableAlly=(s: string)=> (
     <ThemeContext.Consumer>
