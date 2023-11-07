@@ -22,7 +22,7 @@ class Skill implements ISkill {
                 <>
                     Inflicts {this.ranks[rankIndex].effect[0]} damage equal to
                     <span className={`damage ${theme.theme}`}> {`${this.ranks[rankIndex].modifier}%`} </span>
-                    of Attack on all enemies. The hero gains {this.ranks[rankIndex].effect[1]} effect on self for <span className={`subeffect ${theme.theme}`}> 2 turns. </span>
+                    of Attack on all enemies. The hero gains {this.ranks[rankIndex].effect[1]} effect on self for <span className={`subeffect ${theme.theme}`}> 2 turn(s). </span>
                 </>
             )}
             </ThemeContext.Consumer>

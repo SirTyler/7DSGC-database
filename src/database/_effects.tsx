@@ -9,6 +9,13 @@ export const AttackIncrease=()=> (
     )}
     </ThemeContext.Consumer>
 )
+export const PierceRateIncrease=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <span className={`effect ${theme.theme}`}>Pierce Rate</span>
+    )}
+    </ThemeContext.Consumer>
+)
 export const CritChanceIncrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
@@ -76,6 +83,7 @@ export const AllStatsIncrease=()=> (
     )}
     </ThemeContext.Consumer>
 )
+
 
 /* Stat Decrease */
 export const AttackDecrease=()=> (
@@ -176,7 +184,7 @@ export const UltimateDamageDecrease=(i: number)=> (
     </ThemeContext.Consumer>
 )
 
-/* Skill Ranks */
+/* Skill Ranks / Limits */
 export const SkillRankIncrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
@@ -188,6 +196,20 @@ export const SkillRankDecrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
         <span className={`effect ${theme.theme}`}>Decrease Skill Ranks</span>
+    )}
+    </ThemeContext.Consumer>
+)
+export const Rank1Limit=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <span className={`effect ${theme.theme}`}>Allow the use of only Rank 1 Skills</span>
+    )}
+    </ThemeContext.Consumer>
+)
+export const SingleTargetLimit=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <span className={`effect ${theme.theme}`}> allows only single-target skills to be used (Includes Ultimate Moves)</span>
     )}
     </ThemeContext.Consumer>
 )

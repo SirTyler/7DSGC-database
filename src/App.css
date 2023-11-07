@@ -36,3 +36,13 @@ html, body, .App {
 .damage:is(.inverted) {
   color: goldenrod;
 }
+
+.alert {
+  font-weight: bolder;
+}
+.alert:not(.inverted) {
+  color: darkred;
+}
+.alert:is(.inverted) {
+  color: red;
+}
