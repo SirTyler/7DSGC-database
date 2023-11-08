@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Poisons } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Sweet Jelly] New Wings King/skill_1.png");
     name = "Valentine's Gift"
+    type = Type.Ranged
     
     ranks = [
         new IRank("DEBUFF", 150.0, [Poisons()], [3]),

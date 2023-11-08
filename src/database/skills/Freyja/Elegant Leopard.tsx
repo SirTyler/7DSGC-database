@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Flood } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Spellbinding Queen] Goddess of Beauty Freyja/skill_1.png");
     name = "Elegant Leopard"
+    type = Type.Ranged
 
     ranks = [
         new IRank("ATTACK-SINGLE", 200.0, [Flood()]),

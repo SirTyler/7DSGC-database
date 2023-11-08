@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Exploit } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Bloody Valkyrie] Shalltear Bloodfallen/skill_1.png");
     name = "Shadow Stalker"
+    type = Type.Ranged
 
     ranks = [
         new IRank("ATTACK-SINGLE", 150.0, [Exploit()]),

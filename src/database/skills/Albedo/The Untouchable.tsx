@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Taunt, Amplify } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Pure-White Devil] Albedo/skill_2.png");
     name = "The Untouchable"
+    type = Type.Melee
 
     ranks = [
         new IRank("STANCE", 150.0, [Taunt(),Amplify()], [1]),

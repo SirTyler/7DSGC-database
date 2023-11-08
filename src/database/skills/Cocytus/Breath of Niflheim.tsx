@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Detonate } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Guardian of the Glacier] Cocytus/skill_2.png");
     name = "Breath of Niflheim"
+    type = Type.Ranged
 
     ranks = [
         new IRank("ATTACK-SINGLE", 160.0, [Detonate()]),

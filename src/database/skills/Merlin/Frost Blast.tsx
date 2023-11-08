@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { HPRelatedStatsDecrease } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Witch of the Snow] Truth Seeker Merlin/ultimate.png");
     name = "Frost Blast"
+    type = Type.Ultimate
 
     ranks = [
         new IRank("ULTIMATE", 400.0, [HPRelatedStatsDecrease()], [2]),

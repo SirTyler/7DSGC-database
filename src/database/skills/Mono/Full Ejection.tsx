@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { SecretTechnique } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Full Moon Shadow] Iron Blood Mono/ultimate.png")
     name = "Full Ejection";
+    type = Type.Ultimate
 
     ranks = [
         new IRank("ULTIMATE", 300.0, [SecretTechnique(20)]),

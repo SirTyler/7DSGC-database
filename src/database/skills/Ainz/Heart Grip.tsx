@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
-import { Verdict, Deathbrand, DamageDealtDecrease } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import { Verdict, Deathbrand } from "../../_effects";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Ruler of Nazarick] Ainz Ooal Gown/ultimate.png");
     name = "Heart Grip"
+    type = Type.Ultimate
 
     ranks = [
         new IRank("ULTIMATE", 650.0, [Verdict(), Deathbrand()], [2]),

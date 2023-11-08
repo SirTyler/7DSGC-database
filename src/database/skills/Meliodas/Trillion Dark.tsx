@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { MagicBurst, SurpressDamageTaken } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Cursed Shackles] Purgatory Meliodas/ultimate.png");
     name = "Trillion Dark";
+    type = Type.Ultimate
 
     ranks = [
         new IRank("ULTIMATE", 500.0, [MagicBurst(),SurpressDamageTaken()], [1]),

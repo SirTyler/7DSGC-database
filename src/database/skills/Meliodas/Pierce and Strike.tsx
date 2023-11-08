@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Frenzy } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Cursed Shackles] Purgatory Meliodas/skill_1.png");
     name = "Pierce and Strike"
+    type = Type.Melee
 
     ranks = [
         new IRank("ATTACK-SINGLE", 200.0, [Frenzy()]),

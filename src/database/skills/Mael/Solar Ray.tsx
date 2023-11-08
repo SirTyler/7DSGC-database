@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { MarkOfBlackDot, Spike } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
-    image = require("../../../assets/characters/[The Four Archangles] Mael of Sunshine/skill_2.png");
+    image = require("../../../assets/characters/[The Four Archangels] Mael of Sunshine/skill_2.png");
     name = "Solar Ray"
+    type = Type.Ranged
 
     ranks = [
         new IRank("ATTACK-ALL", 100.0, [Spike(), MarkOfBlackDot()], [2]),

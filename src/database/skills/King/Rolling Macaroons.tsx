@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { WeakPoint } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Sweet Jelly] New Wings King/skill_2.png");
     name = "Rolling Macaroons"
+    type = Type.Melee
 
     ranks = [
         new IRank("ATTACK-ALL", 90.0, [WeakPoint()]),

@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 import { Segment, Image, Header, Grid, Divider } from 'semantic-ui-react'
 
-import { database, latest_database } from "./database/_database";
+import { database, db_build, latest_database } from "./database/_database";
 import { ThemeContext } from './theme/theme-context';
 
 let init = false;
@@ -14,6 +14,7 @@ class Database extends Component {
     constructor(props: any) {
         super(props);
         if(!init) {
+            db_build();
             this.build();
             init = true;
         }
@@ -36,7 +37,7 @@ class Database extends Component {
                 {(theme) => (
                 <Grid.Column className={theme.theme}>
                 <Segment clearing as={Link} style={{display:'block'}}to={`${character.title}+${character.name}`} className={theme.theme}>
-                  <Image src={character.image} floated='left' rounded className={theme.theme}/>
+                  <Image src={character.image} floated='left' rounded className={theme.theme} width={100} height={100}/>
                     <Header as='h1' textAlign="left" className={theme.theme}>
                       <Header.Subheader className={theme.theme}>
                         [{character.title}]
@@ -68,7 +69,7 @@ class Database extends Component {
               {(theme) => (
               <Grid.Column className={theme.theme}>
               <Segment clearing as={Link} style={{display:'block'}}to={`${character.title}+${character.name}`} className={theme.theme}>
-                <Image src={character.image} floated='left' rounded className={theme.theme}/>
+                <Image src={character.image} floated='left' rounded className={theme.theme} width={100} height={100}/>
                   <Header as='h1' textAlign="left" className={theme.theme}>
                     <Header.Subheader className={theme.theme}>
                       [{character.title}]

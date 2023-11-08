@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { BasicStatsIncrease } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Guardian of the Glacier] Cocytus/ultimate.png");
     name = "Guillotine"
+    type = Type.Ultimate
 
     ranks = [
         new IRank("ULTIMATE", 650.0, [BasicStatsIncrease()]),

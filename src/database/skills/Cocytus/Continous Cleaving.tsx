@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Amplify } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Guardian of the Glacier] Cocytus/skill_1.png");
     name = "Continous Cleaving"
+    type = Type.Melee
 
     ranks = [
         new IRank("ATTACK-SINGLE", 180.0, [Amplify()]),

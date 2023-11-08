@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Conflagration } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
-    image = require("../../../assets/characters/[The Four Archangles] Mael of Sunshine/skill_1.png");
+    image = require("../../../assets/characters/[The Four Archangels] Mael of Sunshine/skill_1.png");
     name = "Sun Cutter"
+    type = Type.Melee
 
     ranks = [
         new IRank("ATTACK-SINGLE", 200.0, [Conflagration()]),

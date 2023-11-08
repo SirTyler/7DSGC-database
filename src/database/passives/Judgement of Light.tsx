@@ -3,7 +3,7 @@ import { BrillianceOfTheSun } from '../_effects';
 import IPassive from './_IPassive';
 
 class Passive implements IPassive {
-    image = require("../../assets/characters/[The Four Archangles] Mael of Sunshine/unique.png");
+    image = require("../../assets/characters/[The Four Archangels] Mael of Sunshine/unique.png");
     name = "Judgment of Light";
     effects = [
         BrillianceOfTheSun()

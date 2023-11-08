@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Pierce } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Spellbinding Queen] Goddess of Beauty Freyja/skill_2.png");
     name = "Fascination Chain"
+    type = Type.Ranged
 
     ranks = [
         new IRank("ATTACK-ALL", 100.0, [Pierce()]),

@@ -25,7 +25,7 @@ const limit = [
     83.0     /* Resistance */,
     93      /* Regeneration */,
     136     /* Crit Chance */,
-    145.5   /* Crit Damage */,
+    245.5   /* Crit Damage */,
     103     /* Crit Resistance */,
     111.5   /* Crit Defense */,
     166.5   /* Recovery Rate */,
@@ -119,6 +119,25 @@ const bar = {
     ]
 }
 
+function calcCC() {
+    let cc = 0;
+    cc += Math.round(max_stats[0] * 1);     //Attack
+    cc += Math.round(max_stats[1] * 0.8);   //Defense
+    cc += Math.round(max_stats[2] * 0.2);   //HP
+    cc += Math.round(max_stats[3] * 5);     //Pierce
+    cc += Math.round(max_stats[4] * 4);     //Resistance
+    cc += Math.round(max_stats[5] * 5);     //Regeration Rate
+    cc += Math.round(max_stats[6] * 5);     //Crit Chance
+    cc += Math.round(max_stats[7] * 2.5);   //Crit Damage
+    cc += Math.round(max_stats[8] * 4);     //Crit Resistance
+    cc += Math.round(max_stats[9] * 4);     //Crit Defense
+    cc += Math.round(max_stats[10] * 2.5);  //Recovery Rate
+    cc += Math.round(max_stats[11] * 5);    //Lifesteal
+    cc += 400 * 6                           //Max Ult
+    cc += 500                               //Passive Unlocked
+    return cc;
+}
+
 export async function loader(args: LoaderFunctionArgs) {
     let query: string[] = args.params.query!.split("+");
     return getCharacter(query[0], query[1]);
@@ -150,35 +169,41 @@ export default function Character() {
                 </Grid.Column>
                 <Grid.Column width={10}>
                     <Segment className={theme.theme}>
-                        <Table striped compact size='small' className={theme.theme}>
+                        <Grid columns='2' stackable>
+                            <Grid.Column>
+                            <Table striped compact size='small' className={theme.theme}>
                             <Table.Header>
                                 <Table.Row>
-                                    <Table.HeaderCell colSpan='2'>Basic Info</Table.HeaderCell>
+                                    <Table.HeaderCell colSpan='3'>Basic Info</Table.HeaderCell>
                                 </Table.Row>
                             </Table.Header>
 
                             <Table.Body>
-                                <Table.Row>
-                                    <Table.Cell>Rarity</Table.Cell>
-                                    <Table.Cell>{character.rarity}</Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell>Attribute</Table.Cell>
-                                    <Table.Cell>{character.attribute}</Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell>Race</Table.Cell>
-                                    <Table.Cell>{character.race}</Table.Cell>
-                                </Table.Row>
+                                    <Table.Cell height={35}>
+                                        <Image src={require(`./assets/icons/rarity/${character.rarity}.png`)} floated='left' rounded className={theme.theme} width={35} height={35} alt={character.rarity} />
+                                    </Table.Cell>
+                                    <Table.Cell height={35}>
+                                        <Image src={require(`./assets/icons/attribute/${character.attribute}.png`)} floated='left' rounded className={theme.theme} width={35} height={35} alt={character.attribute} />
+                                    </Table.Cell>
+                                    <Table.Cell height={35}>
+                                        <Image src={require(`./assets/icons/race/${character.race}.png`)} floated='left' rounded className={theme.theme} width={35} height={35} alt={character.race} />
+                                    </Table.Cell>
                             </Table.Body>
-                        </Table>
-                        <Header>Recommended Equipment</Header>
+                            </Table>
+                            <Header className={theme.theme}>Recommended Equipment</Header>
                         <Grid columns='2' stackable>
                             <Grid.Column>
                                 {buildTable("Set 1", character.equipment[0], [], [], 'center')}
                             </Grid.Column>
                             <Grid.Column>
                                 {buildTable("Set 2", character.equipment[1], [], [], 'center')}
+                            </Grid.Column>
+                        </Grid>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment className={theme.theme} style={{float: 'right'}}>
+                                {buildPassive(character.unique, true)}
+                        </Segment>
                             </Grid.Column>
                         </Grid>
                     </Segment>
@@ -196,6 +221,7 @@ export default function Character() {
             <Grid.Row stretched>
                 <Grid.Column width={5}>
                     <Segment className={theme.theme}>
+                        <Header>CC: {calcCC().toLocaleString("en-US")}</Header>
                         {buildTable("Max Stats", max_stats, stat_header, [], 'center', false)}
                     </Segment>
                     <Grid className='computer only'>
@@ -219,9 +245,6 @@ export default function Character() {
                     <Segment className={theme.theme}>
                         {buildSkill(character.ultimate[0], 6, true)}
                     </Segment>
-                    <Segment className={theme.theme}>
-                        {buildPassive(character.unique, true)}
-                    </Segment>
                 </Grid.Column>
                 <Grid.Column width={4}>
                     {buildGrace(character.grace, true)}
@@ -233,18 +256,39 @@ export default function Character() {
                     </Segment>
                 </Grid.Column>
             </Grid.Row>
-            <Grid.Row stretched>
-                <Grid.Column>
-                    <Segment className={theme.theme}>
-                        {buildAssoc(character)}
-                    </Segment>
-                </Grid.Column>
-            </Grid.Row>
+
             {character.birthday != null &&
             <Grid.Row stretched>
                 <Grid.Column>
                     <Segment className={theme.theme}>
                         Birthday: {character.birthday.toLocaleDateString('default', {month: 'long', day: 'numeric'})}
+                    </Segment>
+                </Grid.Column>
+            </Grid.Row>
+            }
+            {character.group.length > 0 &&
+            <Grid.Row stretched>
+                <Grid.Column>
+                    <Segment className={theme.theme}>
+                        <Header as='h1' textAlign="center" className={theme.theme} >
+                            Characteristics
+                        </Header>
+                        {character.group.length> 0 &&
+                            <>
+                                <Header as='h3' textAlign="center" className={theme.theme}>
+                                    {character.group[0].name}
+                                </Header>
+                                {buildAssoc(character.group[0].members)}
+                            </>
+                        }
+                        {character.group.length> 1 &&
+                            <>
+                                <Header as='h3' textAlign="center" className={theme.theme}>
+                                    {character.group[1].name}
+                                </Header>
+                                {buildAssoc(character.group[1].members)}
+                            </>
+                        }
                     </Segment>
                 </Grid.Column>
             </Grid.Row>
@@ -274,10 +318,10 @@ function buildSkill(skill: any, count = 3, vertical = false) {
         return(
             <ThemeContext.Consumer>
             {(theme) => (
-            <Grid columns='equal'>
+            <Grid columns='equal' stackable>
                 <Grid.Row stretched>
                     <Grid.Column>
-                        <Image src={skill.image} floated='left' centered rounded/>
+                        <Image src={skill.image} floated='left' centered rounded height={265}/>
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
@@ -303,10 +347,13 @@ function buildSkill(skill: any, count = 3, vertical = false) {
         return(
             <ThemeContext.Consumer>
             {(theme) => (
-            <Grid columns='equal'>
+            <Grid columns='equal' stackable>
                 <Grid.Row>
                     <Grid.Column>
-                        <Image src={skill.image} floated='left' rounded/>
+                        <span style={{display: 'inline-block'}}>
+                            <Image src={skill.image} floated='left' rounded height={265}/>
+                            <Image src={require(`./assets/icons/icon_type_${skill.type}.png`)} style={{position: 'absolute', top: '200px'}} className={theme.theme} width={64} height={64} />
+                        </span>
                     </Grid.Column>
                     <Grid.Column>
                         <Table compact size='small' className={theme.theme}>
@@ -400,41 +447,41 @@ function buildChart(character: ICharacter) {
     }
 }
 
-function buildAssoc(character: ICharacter) {
+function buildAssoc(association: ICharacter[]) {
     const table: JSX.Element[] = [];
-    character.association.forEach(ch => {
-        let assoc = ch[0];
+
+    association.sort((n1,n2) => {
+        let a = n1.sort.toLowerCase();
+        let b = n2.sort.toLowerCase();
+
+        if(a < b) return -1;
+        if(a > b) return 1;
+        return 0;
+      });
+
+    table.length = 0;
+    association.forEach(character => {
         table.push(
-            <ThemeContext.Consumer>
-            {(theme) => (
-            <Grid.Column>
-                <Table as={Link} style={{display:'block'}}to={`../${assoc.title}+${assoc.name}`} className={theme.theme}>
-                    <Table.Body>
-                        <Table.Row>
-                            <Table.Cell>
-                            <Image src={assoc.image} floated='left' rounded />
-                            <Header as='h4' textAlign="left">
-                                <Header.Subheader>
-                                    [{assoc.title}]
-                                </Header.Subheader>
-                                {assoc.name}
-                            </Header>
-                            </Table.Cell>
-                            <Table.Cell textAlign="right">
-                                {ch[1]}
-                            </Table.Cell>
-                        </Table.Row>
-                    </Table.Body>
-                </Table>
-            </Grid.Column>
-            )}
-          </ThemeContext.Consumer>
-            
-          )
-    })
+          <ThemeContext.Consumer>
+          {(theme) => (
+          <Grid.Column className={theme.theme}>
+          <Segment clearing as={Link} style={{display:'block'}}to={`../${character.title}+${character.name}`} className={theme.theme}>
+            <Image src={character.image} floated='left' rounded className={theme.theme} width={75} height={75}/>
+              <Header as='h3' textAlign="left" className={theme.theme}>
+                <Header.Subheader className={theme.theme}>
+                  [{character.title}]
+                </Header.Subheader>
+                {character.s_name}
+              </Header>
+          </Segment>
+          </Grid.Column>
+          )}
+        </ThemeContext.Consumer>
+        )
+    });
   
     return (
-      <Grid columns='3' stackable>
+      <Grid columns='4' stackable>
         {table}
       </Grid>
     )

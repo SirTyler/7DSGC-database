@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Wave, Abyss } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Spellbinding Queen] Goddess of Beauty Freyja/ultimate.png");
     name = "Aesthetic Overflow"
+    type = Type.Ultimate
 
     ranks = [
         new IRank("ULTIMATE", 725.0, [Wave(20.0), Abyss(25.0)]),

@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Quell, CritChanceIncrease, CritDamageIncrease } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Pure-White Devil] Albedo/ultimate.png");
     name = "True Hatred"
+    type = Type.Ultimate
 
     ranks = [
         new IRank("ULTIMATE", 350.0, [Quell(5.0), CritChanceIncrease(), CritDamageIncrease()], [60]),

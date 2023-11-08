@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   createHashRouter,
   Link,
@@ -6,8 +6,7 @@ import {
   useLocation,
   useRouteError
 } from "react-router-dom";
-import {
-  Container, Segment, Divider, Breadcrumb} from 'semantic-ui-react'
+import { Container, Segment, Divider, Breadcrumb} from 'semantic-ui-react'
 
 import Character, {
   loader as characterLoader,
@@ -92,6 +91,7 @@ function Root() {
       <Container>
         <NavCrumb />
         <Divider />
+        <ScrollToTop />
         <Outlet />
       </Container>
       <ToggleButton />
@@ -99,6 +99,20 @@ function Root() {
     )}
   </ThemeContext.Consumer>
   );
+}
+
+export default function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // "document.documentElement.scrollTo" is the magic for React Router Dom v6
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0
+    });
+  }, [pathname]);
+
+  return null;
 }
 
 function Index() {

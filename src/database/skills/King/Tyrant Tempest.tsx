@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Abyss } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Sweet Jelly] New Wings King/ultimate.png");
     name = "Tyrant Tempest"
+    type = Type.Ultimate
 
     ranks = [
         new IRank("ULTIMATE", 300.0, [Abyss(30.0)]),

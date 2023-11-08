@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Verdict } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Ruler of Nazarick] Ainz Ooal Gown/skill_1.png");
     name = "Death Quartet"
+    type = Type.Ranged
 
     ranks = [
         new IRank("ATTACK-SINGLE", 200.0, [Verdict()]),

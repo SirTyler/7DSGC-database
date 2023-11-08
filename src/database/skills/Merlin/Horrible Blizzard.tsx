@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { SingleTargetLimit } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Witch of the Snow] Truth Seeker Merlin/skill_2.png");
     name = "Horrible Blizzard"
+    type = Type.Ranged
 
     ranks = [
         new IRank("ATTACK-ALL", 180.0, []),

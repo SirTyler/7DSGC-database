@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { WeakPoint } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Full Moon Shadow] Iron Blood Mono/skill_1.png")
-    name = "Slash Master";
+    name = "Slashing Master";
+    type = Type.Melee
 
     ranks = [
         new IRank("ATTACK-ALL", 90.0, [WeakPoint()]),

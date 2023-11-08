@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Lifesteals } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Bloody Valkyrie] Shalltear Bloodfallen/ultimate.png");
     name = "Crimson Valkyrie"
+    type = Type.Ultimate
 
     ranks = [
         new IRank("ULTIMATE", 400.0, [Lifesteals()], [5]),

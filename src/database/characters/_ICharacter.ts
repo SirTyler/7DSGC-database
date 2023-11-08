@@ -21,7 +21,8 @@ interface ICharacter {
     ultimate: ISkill[];
     unique: IPassive;
     grace: IPassive | null;
-    association: any[];
+    group: {name: string, members: ICharacter[]} [];
+    association: ICharacter[];
 
     gender: string;
     blood: string;

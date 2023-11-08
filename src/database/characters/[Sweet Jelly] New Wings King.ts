@@ -7,17 +7,14 @@ import Ultimate from '../skills/King/Tyrant Tempest';
 
 class Character implements ICharacter {
     image = require('../../assets/characters/[Sweet Jelly] New Wings King/portrait.png');
-    sort = "King, New Wings";
-    s_name = "New Wings King";
-    name = "New Wings King";
-    title = "Sweet Jelly";
-    attribute = "HP";
-    rarity = "SSR";
-    race = "Fairy";
-    equipment = [
-        ["Attack","HP"],
-        ["Crit Damage","Defense"]
-    ]
+    sort = 'King, New Wings';
+    s_name = 'New Wings King';
+    name = 'New Wings King';
+    title = 'Sweet Jelly';
+    attribute = 'HP';
+    rarity = 'SSR';
+    race = 'Fairy';
+    equipment = [['Attack', 'HP'], ['Crit Damage', 'Defense']]
     basic = [
         515 /* Attack */,
         346 /* Defense */,
@@ -33,21 +30,20 @@ class Character implements ICharacter {
         20 /* Lifesteal */
     ]
     stats = [
-        5142 /* Attack */,
-        3854 /* Defense */,
-        65250 /* HP */,
+        4682 /* Attack */,
+        3328 /* Defense */,
+        61450 /* HP */,
         60 /* Pierce Rate */,
         50 /* Resistance */,
         15 /* Regeneration */,
         50 /* Crit Chance */,
-        50 /* Crit Damage */,
+        150 /* Crit Damage */,
         70 /* Crit Resistance */,
         20 /* Crit Defense */,
         120 /* Recovery Rate */,
         20 /* Lifesteal */
     ]
-    awakening = [
-        [
+    awakening = [[
         0 /* Attack */,
         0 /* Defense */,
         1800 /* HP */,
@@ -60,7 +56,7 @@ class Character implements ICharacter {
         0 /* Crit Defense */,
         3 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ],[
+    ], [
         360 /* Attack */,
         144 /* Defense */,
         0 /* HP */,
@@ -73,7 +69,7 @@ class Character implements ICharacter {
         0 /* Crit Defense */,
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ],[
+    ], [
         0 /* Attack */,
         0 /* Defense */,
         2400 /* HP */,
@@ -86,7 +82,7 @@ class Character implements ICharacter {
         5 /* Crit Defense */,
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ],[
+    ], [
         480 /* Attack */,
         192 /* Defense */,
         0 /* HP */,
@@ -99,7 +95,7 @@ class Character implements ICharacter {
         0 /* Crit Defense */,
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ],[
+    ], [
         0 /* Attack */,
         0 /* Defense */,
         3000 /* HP */,
@@ -112,7 +108,7 @@ class Character implements ICharacter {
         0 /* Crit Defense */,
         0 /* Recovery Rate */,
         2 /* Lifesteal */,
-        ],[
+    ], [
         600 /* Attack */,
         240 /* Defense */,
         0 /* HP */,
@@ -125,10 +121,8 @@ class Character implements ICharacter {
         0 /* Crit Defense */,
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ]
-    ]
-    superawakening = [
-        [
+    ]]
+    superawakening = [[
         0 /* Attack */,
         0 /* Defense */,
         5650 /* HP */,
@@ -141,7 +135,7 @@ class Character implements ICharacter {
         0 /* Crit Defense */,
         9 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ],[
+    ], [
         150 /* Attack */,
         160 /* Defense */,
         0 /* HP */,
@@ -154,7 +148,7 @@ class Character implements ICharacter {
         0 /* Crit Defense */,
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ],[
+    ], [
         0 /* Attack */,
         0 /* Defense */,
         8150 /* HP */,
@@ -167,7 +161,7 @@ class Character implements ICharacter {
         9 /* Crit Defense */,
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ],[
+    ], [
         450 /* Attack */,
         480 /* Defense */,
         0 /* HP */,
@@ -180,7 +174,7 @@ class Character implements ICharacter {
         0 /* Crit Defense */,
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ],[
+    ], [
         0 /* Attack */,
         0 /* Defense */,
         0 /* HP */,
@@ -193,7 +187,7 @@ class Character implements ICharacter {
         9 /* Crit Defense */,
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ],[
+    ], [
         300 /* Attack */,
         320 /* Defense */,
         11000 /* HP */,
@@ -206,25 +200,20 @@ class Character implements ICharacter {
         0 /* Crit Defense */,
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
-        ]
-    ]
-    skills = [
-        new Skill1(),
-        new Skill2()
-    ]
-    ultimate = [
-        new Ultimate()
-    ]
+    ]]
+    skills = [new Skill1(), new Skill2()]
+    ultimate = [new Ultimate()]
     unique = new Passive();
     grace = null;
     association = [];
+    group = [require('./../group/The Seven Deadly Sins')];
     gender = 'Male';
     blood = 'AB';
     age = '~1300';
     height = '160 cm';
     weight = '48 kg';
-    birthday: Date = new Date(0, 3, 1);
-    
+    birthday = new Date(0, 3, 1);
+
     food = [];
     gift = [];
 }

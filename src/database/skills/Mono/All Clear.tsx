@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { CritChanceIncrease, CritDamageIncrease, RemoveDebuffs } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Full Moon Shadow] Iron Blood Mono/skill_2.png")
     name = "All Clear";
+    type = Type.Ranged
 
     ranks = [
         new IRank("BUFF", 0, [RemoveDebuffs()]),

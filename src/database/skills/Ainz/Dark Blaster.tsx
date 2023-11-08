@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { AttackRelatedStatsDecrease } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Ruler of Nazarick] Ainz Ooal Gown/skill_2.png");
     name = "The Untouchable"
+    type = Type.Ranged
 
     ranks = [
         new IRank("DEBUFF-ALL", 120.0, [AttackRelatedStatsDecrease()], [2]),

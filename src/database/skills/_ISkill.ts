@@ -2,9 +2,16 @@
 interface ISkill {
     image: Node;
     name: string;
+    type: Type;
     ranks: IRank[]
 
     getDescription(rankIndex: number): JSX.Element;
+}
+
+export enum Type {
+    Melee,
+    Ranged,
+    Ultimate
 }
 
 export class IRank {

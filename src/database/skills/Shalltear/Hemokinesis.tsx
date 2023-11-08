@@ -1,10 +1,11 @@
 import { ThemeContext } from "../../../theme/theme-context";
 import { Infects } from "../../_effects";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Bloody Valkyrie] Shalltear Bloodfallen/skill_2.png");
     name = "Hemokinesis"
+    type = Type.Ranged
 
     ranks = [
         new IRank("DEBUFF-ALL", 110.0, [Infects()], [1]),

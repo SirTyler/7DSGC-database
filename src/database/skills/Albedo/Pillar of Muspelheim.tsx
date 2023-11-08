@@ -1,9 +1,10 @@
 import { ThemeContext } from "../../../theme/theme-context";
-import ISkill, { IRank } from "../_ISkill";
+import ISkill, { IRank, Type } from "../_ISkill";
 
 class Skill implements ISkill {
     image = require("../../../assets/characters/[Pure-White Devil] Albedo/skill_1.png");
     name = "Pillar of Muspelheim"
+    type = Type.Ranged
 
     ranks = [
         new IRank("DEBUFF-SINGLE", 180.0, [], [30,1]),
