@@ -215,7 +215,22 @@ export default function Character() {
             </Grid.Row>
             <Grid.Column className='mobile only' >
             <Segment className={theme.theme}>
-                <ReactECharts option={bar} style={{height: '100%', minHeight: '300px'}}/>
+            <div style={{position: 'absolute', top: '21%', left: '8%'}}>
+                    <Image src={require(`./assets/icons/attack.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/defense.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/hp.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/pierce.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/resist.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/regen.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/crit.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/crit.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/crit_dmg.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/crit_res.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/crit_def.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/recovery.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                    <Image src={require(`./assets/icons/lifesteal.png`)} className={theme.theme} width={12} height={12} style={{marginBottom: '3px'}}/>
+                </div>
+                <ReactECharts option={bar} style={{height: '100%', minHeight: '320px'}}/>
             </Segment>
             </Grid.Column>
         </Grid>
