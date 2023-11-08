@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import {
   createHashRouter,
+  isRouteErrorResponse,
   Link,
   Outlet,
   useLocation,
   useRouteError
 } from "react-router-dom";
-import { Container, Segment, Divider, Breadcrumb} from 'semantic-ui-react'
+import { Container, Segment, Divider, Image, Breadcrumb, Header} from 'semantic-ui-react'
 
 import Character, {
   loader as characterLoader,
@@ -15,6 +16,7 @@ import { ThemeContext } from './theme/theme-context';
 
 import './App.css';
 import Database from './Database';
+import Characteristics from "./Characteristics";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const state = {
@@ -62,12 +64,10 @@ export const router = createHashRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        errorElement: <ErrorPage />,
         children: [
-          { index: true, element: <Index /> },
+          { index: true, element: <Index />},
           {
             path: "database",
-            errorElement: <ErrorPage />,
             children: [
               {index: true, element: <Database />},
               {
@@ -75,6 +75,12 @@ export const router = createHashRouter([
                 element: <Character />,
                 loader: characterLoader
               }
+            ]
+          },
+          {
+            path: "characteristics",
+            children: [
+              {index: true, element: <Characteristics />}
             ]
           }
         ]
@@ -120,7 +126,10 @@ function Index() {
     <div>
       <ThemeContext.Consumer>
         {(theme) => (
-          <Segment clearing as={Link} style={{display:'block'}}to='database' className={theme.theme}>Database</Segment>
+          <>
+            <Segment clearing as={Link} style={{display:'block'}}to='database' className={theme.theme}>Database</Segment>
+            <Segment clearing as={Link} style={{display:'block'}}to='characteristics' className={theme.theme}>Characteristics</Segment>
+          </>
         )}
       </ThemeContext.Consumer>
     </div>
@@ -128,19 +137,66 @@ function Index() {
 }
 
 function ErrorPage() {
-  const error: any = useRouteError();
+  const error: Error = useRouteError() as Error;
   console.error(error);
 
-  return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        {error}
-        <i>{error.statusText || error.message}</i>
-      </p>
-    </div>
-  );
+  if(!isRouteErrorResponse(error)) {
+    return (
+      <ThemeContext.Consumer>
+      {(theme) => (
+        <div id="error-page" className={theme.dark ? 'dark' : ''}>
+        <Container>
+          <NavCrumb />
+          <Divider />
+          <ScrollToTop />
+          <Header as='h1' className={theme.theme}>
+              Oops!
+              <Header.Subheader>
+                Sorry, an unexpected error has occurred.
+              </Header.Subheader>
+            </Header>
+            <Image src={require(`./assets/icons/oops.png`)} className={theme.theme} centered />
+            <Segment className={theme.theme}>
+              <Header as='h2'>{error.message || error.name}</Header>
+            </Segment>
+            <Segment className={theme.theme}>
+                {error.stack}
+            </Segment>
+        </Container>
+        <ToggleButton />
+        </div>
+      )}
+      </ThemeContext.Consumer>
+    );
+  } else {
+    return (
+      <ThemeContext.Consumer>
+      {(theme) => (
+        <div id="error-page" className={theme.dark ? 'dark' : ''}>
+        <Container>
+          <NavCrumb />
+          <Divider />
+          <ScrollToTop />
+          <Header as='h1' className={theme.theme}>
+              Oops!
+              <Header.Subheader>
+                Sorry, an unexpected error has occurred.
+              </Header.Subheader>
+            </Header>
+            <Image src={require(`./assets/icons/oops.png`)} className={theme.theme} centered />
+            <Segment className={theme.theme}>
+              <Header as='h2'>{error.status || error.statusText}</Header>
+            </Segment>
+            <Segment className={theme.theme}>
+                {error.data}
+            </Segment>
+        </Container>
+        <ToggleButton />
+        </div>
+      )}
+      </ThemeContext.Consumer>
+    );
+  }
 }
 
 function ToggleButton() {

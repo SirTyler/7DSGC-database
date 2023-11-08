@@ -4,7 +4,7 @@ import iDPurgatoryMeliodas from "./../characters/[Cursed Shackles] Purgatory Mel
 import iGNewWingsKing from "./../characters/[Sweet Jelly] New Wings King";
 import iRTruthSeekerMerlin from "./../characters/[Witch of the Snow] Truth Seeker Merlin";
 
-export const name = "The Seven Catastrophes"
+export const name = "The Seven Deadly Sins"
 export const members: ICharacter[] = [
     new iDPurgatoryMeliodas(),
     new iGNewWingsKing(),

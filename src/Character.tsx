@@ -138,9 +138,13 @@ function calcCC() {
     return cc;
 }
 
-export async function loader(args: LoaderFunctionArgs) {
+export function loader(args: LoaderFunctionArgs) {
     let query: string[] = args.params.query!.split("+");
-    return getCharacter(query[0], query[1]);
+    let character = getCharacter(query[0], query[1]);
+    if (character != null)
+        return character;
+    else
+        throw new Response(`Error: No route matches URL "/database/${args.params.query}"`, { status: 404 , statusText: "Not Found"});
 }
 
 export default function Character() {
@@ -614,13 +618,15 @@ function buildGrace(passive: any, vertical: boolean) {
 }
 
 
-export async function getCharacter(title: string, name: string) {
-    let character;
+export function getCharacter(title: string, name: string) {
+    let character: ICharacter|null = null;
     database.forEach(element => {
         if( element.title.toLowerCase() === title.toLowerCase() && 
-            element.name.toLowerCase() === name.toLowerCase())
-        character = element;
+            element.name.toLowerCase() === name.toLowerCase()) {
+                character = element;
+            }
     })
+
     return character ?? null;
 }
 
