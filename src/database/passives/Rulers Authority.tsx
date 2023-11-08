@@ -1,6 +1,6 @@
 import { ThemeContext } from '../../theme/theme-context'
 import { BasicStatsIncrease, DeathSentence, Deathbrand } from '../_effects';
-import IPassive from './_IPassive';
+import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
     image = require("../../assets/characters/[Ruler of Nazarick] Ainz Ooal Gown/unique.png");
@@ -10,6 +10,10 @@ class Passive implements IPassive {
         Deathbrand(),
         DeathSentence()
     ];
+    conditions = [
+        Type.BATTLE_START,
+        Type.ALL
+    ]
 
     getDescription() {
         return (

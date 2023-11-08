@@ -1,6 +1,6 @@
 import { ThemeContext } from '../../theme/theme-context'
 import { AbsoluteDefense, AttackRelatedStatsIncrease } from '../_effects';
-import IPassive from './_IPassive';
+import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
     image = require("../../assets/characters/[Pure-White Devil] Albedo/unique.png");
@@ -9,6 +9,10 @@ class Passive implements IPassive {
         AbsoluteDefense(),
         AttackRelatedStatsIncrease()
     ];
+    conditions = [
+        Type.BATTLE_START,
+        Type.ALL
+    ]
 
     getDescription() {
         return (

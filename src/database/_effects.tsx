@@ -100,6 +100,13 @@ export const CritChanceDecrease=()=> (
     )}
     </ThemeContext.Consumer>
 )
+export const CritDamageDecrease=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <span className={`effect ${theme.theme}`}>Crit Damage</span>
+    )}
+    </ThemeContext.Consumer>
+)
 export const DefenseDecrease=()=> (
     <ThemeContext.Consumer>
     {(theme) => (
@@ -170,6 +177,15 @@ export const DamageTakenDecrease=(i: number)=> (
     {(theme) => (
         <>
             <span className={`effect ${theme.theme}`}>Decrease damage taken</span> by <span className={`damage ${theme.theme}`}>{`${i}%`}</span>
+        </>
+    )}
+    </ThemeContext.Consumer>
+)
+export const DamageTakenIncrease=(i: number)=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <>
+            <span className={`effect ${theme.theme}`}>Increase damage taken of all enemies</span> by <span className={`damage ${theme.theme}`}>{`${i}%`}</span>
         </>
     )}
     </ThemeContext.Consumer>
@@ -548,6 +564,32 @@ export const Berserk=()=> (
     )}
     </ThemeContext.Consumer>
 )
+export const Pain=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="Attack-related stats +12% for every Source of Pain on the target."
+        trigger={<span className={`effect ${theme.theme}`}>Pain</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const SourceOfPain=()=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content="5% damage taken, additional damage equal to 10% of remaining HP at the end of the turn. (Stacks up to 5 times)"
+        trigger={<span className={`effect ${theme.theme}`}>Source of Pain</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+export const UndyingShepherd=(i: number)=> (
+    <ThemeContext.Consumer>
+    {(theme) => (
+        <Popup content={`The hero's immunity to Source of Pain is removed and revives with 1 HP when taking fatal damage by consuming all orbs in the Ultimate Move Gauge, removing the Undying shepherd effect. (Does not revive when dying from reflected damage, stacks ${i} times.).`}
+        trigger={<span className={`effect ${theme.theme}`}>Undying Shepherd</span>} />
+    )}
+    </ThemeContext.Consumer>
+)
+
+
 
 export const ApplicableAlly=(s: string)=> (
     <ThemeContext.Consumer>

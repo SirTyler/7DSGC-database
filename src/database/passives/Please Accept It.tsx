@@ -1,6 +1,6 @@
 import { ThemeContext } from '../../theme/theme-context'
 import { ApplicableAlly, AttackRelatedStatsIncrease } from '../_effects';
-import IPassive from './_IPassive';
+import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
     image = require("../../assets/characters/[Sweet Jelly] New Wings King/unique.png");
@@ -9,6 +9,10 @@ class Passive implements IPassive {
         AttackRelatedStatsIncrease(),
         ApplicableAlly("<The Seven Deadly Sins> with the Strength, HP or Speed Attribute")
     ];
+    conditions = [
+        Type.BATTLE_START,
+        Type.ALL
+    ]
 
     getDescription() {
         return (

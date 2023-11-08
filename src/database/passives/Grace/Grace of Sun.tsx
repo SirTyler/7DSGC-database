@@ -1,6 +1,6 @@
 import { ThemeContext } from '../../../theme/theme-context'
 import { DamageDealtIncrease } from '../../_effects';
-import IPassive from '../_IPassive';
+import IPassive, { Type } from '../_IPassive';
 
 class Passive implements IPassive {
     image = require("../../../assets/characters/[The Four Archangels] Mael of Sunshine/grace.png");
@@ -8,6 +8,10 @@ class Passive implements IPassive {
     effects = [
         DamageDealtIncrease(20.0)
     ];
+    conditions = [
+        Type.BATTLE_START,
+        Type.ALL
+    ]
 
     getDescription() {
         return (

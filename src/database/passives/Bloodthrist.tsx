@@ -1,6 +1,6 @@
 import { ThemeContext } from '../../theme/theme-context'
 import { BasicStatsIncrease, Berserk, Bleeds, HPRelatedStatsIncrease } from '../_effects';
-import IPassive from './_IPassive';
+import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
     image = require("../../assets/characters/[Bloody Valkyrie] Shalltear Bloodfallen/unique.png");
@@ -11,6 +11,10 @@ class Passive implements IPassive {
         Berserk(),
         Bleeds()
     ];
+    conditions = [
+        Type.BATTLE_START,
+        Type.ALL
+    ]
 
     getDescription() {
         return (

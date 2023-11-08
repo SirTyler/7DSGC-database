@@ -1,10 +1,14 @@
 import { ThemeContext } from '../../theme/theme-context'
-import IPassive from './_IPassive';
+import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
     image = require("../../assets/characters/[Guardian of the Glacier] Cocytus/unique.png");
     name = "Cold Berserker";
     effects = [];
+    conditions = [
+        Type.EXCEPT_PVP,
+        Type.EXCEPT_DEMONICBEAST
+    ]
 
     getDescription() {
         return (

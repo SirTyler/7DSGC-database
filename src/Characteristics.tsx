@@ -7,7 +7,7 @@ import ICharacter from "./database/characters/_ICharacter";
 
 let init = false;
 
-class Database extends Component {
+class Page extends Component {
 
     constructor(props: any) {
         super(props);
@@ -104,4 +104,4 @@ function buildAssoc(association: ICharacter[]) {
   )
 }
 
-export default Database;
+export default Page;

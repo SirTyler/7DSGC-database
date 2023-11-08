@@ -1,48 +1,47 @@
 import ICharacter from './_ICharacter';
 
-import Passive from '../passives/Judgement of Light';
-import Grace from '../passives/Grace/Grace of Sun';
-import Skill1 from '../skills/Mael/Sun Cutter';
-import Skill2 from '../skills/Mael/Solar Ray';
-import Ultimate from '../skills/Mael/Rising Sun';
+import Passive from '../passives/Pains Guidance';
+import Skill1 from '../skills/Hel/Soul Drain';
+import Skill2 from '../skills/Hel/Reaping Death';
+import Ultimate from '../skills/Hel/Damnation';
 
 class Character implements ICharacter {
-    image = require('../../assets/characters/[The Four Archangels] Mael of Sunshine/portrait.png');
-    sort = 'Mael';
-    s_name = 'Mael';
-    name = 'Mael of Sunshine';
-    title = 'The Four Archangels';
-    attribute = 'Light';
+    image = require('../../assets/characters/[Shepherd of Souls] Queen Hel/portrait.png');
+    sort = 'Hel';
+    s_name = 'Hel';
+    name = 'Queen Hel';
+    title = 'Shepherd of Souls';
+    attribute = 'Darkness';
     rarity = 'SSR';
-    race = 'Goddess';
-    equipment = [['Attack', 'Defense'], ['Attack', 'Crit Damage']]
+    race = 'Unknown';
+    equipment = [['HP', 'Defense'], ['HP', 'Crit Damage']]
     basic = [
-        680 /* Attack */,
-        420 /* Defense */,
-        7000 /* HP */,
-        90 /* Pierce Rate */,
-        55 /* Resistance */,
-        0 /* Regeneration */,
-        100 /* Crit Chance */,
-        190 /* Crit Damage */,
-        75 /* Crit Resistance */,
+        670 /* Attack */,
+        370 /* Defense */,
+        6600 /* HP */,
+        85 /* Pierce Rate */,
+        65 /* Resistance */,
+        5 /* Regeneration */,
+        95 /* Crit Chance */,
+        200 /* Crit Damage */,
+        70 /* Crit Resistance */,
         80 /* Crit Defense */,
         110 /* Recovery Rate */,
-        10 /* Lifesteal */
+        0 /* Lifesteal */
     ]
     stats = [
-        5910 /* Attack */,
-        3648 /* Defense */,
+        6030 /* Attack */,
+        3768 /* Defense */,
         64440 /* HP */,
-        90 /* Pierce Rate */,
-        55 /* Resistance */,
-        0 /* Regeneration */,
-        100 /* Crit Chance */,
-        190 /* Crit Damage */,
-        75 /* Crit Resistance */,
+        85 /* Pierce Rate */,
+        65 /* Resistance */,
+        5 /* Regeneration */,
+        95 /* Crit Chance */,
+        200 /* Crit Damage */,
+        70 /* Crit Resistance */,
         80 /* Crit Defense */,
         110 /* Recovery Rate */,
-        10 /* Lifesteal */
+        0 /* Lifesteal */
     ]
     awakening = [[
         0 /* Attack */,
@@ -55,7 +54,7 @@ class Character implements ICharacter {
         0 /* Crit Damage */,
         2 /* Crit Resistance */,
         0 /* Crit Defense */,
-        4.5 /* Recovery Rate */,
+        3 /* Recovery Rate */,
         0 /* Lifesteal */,
     ], [
         360 /* Attack */,
@@ -76,7 +75,7 @@ class Character implements ICharacter {
         2800 /* HP */,
         0 /* Pierce Rate */,
         0 /* Resistance */,
-        3 /* Regeneration */,
+        2 /* Regeneration */,
         0 /* Crit Chance */,
         0 /* Crit Damage */,
         0 /* Crit Resistance */,
@@ -108,7 +107,7 @@ class Character implements ICharacter {
         0 /* Crit Resistance */,
         0 /* Crit Defense */,
         0 /* Recovery Rate */,
-        3 /* Lifesteal */,
+        2 /* Lifesteal */,
     ], [
         600 /* Attack */,
         240 /* Defense */,
@@ -134,11 +133,11 @@ class Character implements ICharacter {
         0 /* Crit Damage */,
         9 /* Crit Resistance */,
         0 /* Crit Defense */,
-        9 /* Recovery Rate */,
+        6 /* Recovery Rate */,
         0 /* Lifesteal */,
     ], [
-        180 /* Attack */,
-        160 /* Defense */,
+        150 /* Attack */,
+        140 /* Defense */,
         0 /* HP */,
         0 /* Pierce Rate */,
         0 /* Resistance */,
@@ -155,7 +154,7 @@ class Character implements ICharacter {
         8150 /* HP */,
         0 /* Pierce Rate */,
         0 /* Resistance */,
-        30 /* Regeneration */,
+        20 /* Regeneration */,
         0 /* Crit Chance */,
         0 /* Crit Damage */,
         0 /* Crit Resistance */,
@@ -163,8 +162,8 @@ class Character implements ICharacter {
         0 /* Recovery Rate */,
         0 /* Lifesteal */,
     ], [
-        540 /* Attack */,
-        480 /* Defense */,
+        450 /* Attack */,
+        420 /* Defense */,
         0 /* HP */,
         0 /* Pierce Rate */,
         0 /* Resistance */,
@@ -190,7 +189,7 @@ class Character implements ICharacter {
         0 /* Lifesteal */,
     ], [
         300 /* Attack */,
-        320 /* Defense */,
+        280 /* Defense */,
         11000 /* HP */,
         0 /* Pierce Rate */,
         0 /* Resistance */,
@@ -205,15 +204,15 @@ class Character implements ICharacter {
     skills = [new Skill1(), new Skill2()]
     ultimate = [new Ultimate()]
     unique = new Passive();
-    grace = new Grace();
+    grace = null;
     association = [];
-    group = [require('./../group/The Four Archangels')];
-    gender = 'Male';
-    blood = 'O';
-    age = '3500';
-    height = '187 cm';
-    weight = '90 kg';
-    birthday = new Date(0, 0, 14);
+    group = [require('./../group/God'), require('./../group/Ragnarok')];
+    gender = 'Female';
+    blood = 'Unknown';
+    age = 'Unknown';
+    height = '128 cm';
+    weight = '37 kg';
+    birthday = null;
 
     food = [];
     gift = [];

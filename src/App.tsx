@@ -17,6 +17,7 @@ import { ThemeContext } from './theme/theme-context';
 import './App.css';
 import Database from './Database';
 import Characteristics from "./Characteristics";
+import SubSlots from "./SubSlots";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const state = {
@@ -82,6 +83,12 @@ export const router = createHashRouter([
             children: [
               {index: true, element: <Characteristics />}
             ]
+          },
+          {
+            path: "subslots",
+            children: [
+              {index: true, element: <SubSlots />}
+            ]
           }
         ]
       }
@@ -129,6 +136,7 @@ function Index() {
           <>
             <Segment clearing as={Link} style={{display:'block'}}to='database' className={theme.theme}>Database</Segment>
             <Segment clearing as={Link} style={{display:'block'}}to='characteristics' className={theme.theme}>Characteristics</Segment>
+            <Segment clearing as={Link} style={{display:'block'}}to='subslots' className={theme.theme}>Sub Slot Uniques</Segment>
           </>
         )}
       </ThemeContext.Consumer>

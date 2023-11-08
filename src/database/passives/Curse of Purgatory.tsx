@@ -1,6 +1,6 @@
 import { ThemeContext } from '../../theme/theme-context'
 import { ShacklesOfPurgatory, TrueMagic } from '../_effects';
-import IPassive from './_IPassive';
+import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
     image = require("../../assets/characters/[Cursed Shackles] Purgatory Meliodas/unique.png");
@@ -9,6 +9,10 @@ class Passive implements IPassive {
         ShacklesOfPurgatory(),
         TrueMagic(),
     ];
+    conditions = [
+        Type.BATTLE_START,
+        Type.ALL
+    ]
 
     getDescription() {
         return (

@@ -1,10 +1,14 @@
 import { ThemeContext } from '../../theme/theme-context'
-import IPassive from './_IPassive';
+import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
     image = require("../../assets/characters/[Full Moon Shadow] Iron Blood Mono/unique.png");
     name = "Shadow Assault";
     effects = [];
+    conditions = [
+        Type.BATTLE_START,
+        Type.PVP
+    ]
 
     getDescription() {
         return (

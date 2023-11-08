@@ -248,6 +248,7 @@ export default function Character() {
                     </Segment>
                     <Segment className={theme.theme}>
                         {buildSkill(character.ultimate[0], 6, true)}
+                        {character.ultimate.length > 1 && buildSkill(character.ultimate[1], 6, true)}
                     </Segment>
                 </Grid.Column>
                 <Grid.Column width={4}>
@@ -499,7 +500,11 @@ function buildPassive(passive: any, vertical: boolean) {
                 <Grid columns='equal'>
                   <Grid.Row stretched>
                       <Grid.Column>
-                          <Image src={passive.image} floated='left' centered rounded />
+                            <Image src={passive.image} centered rounded />
+                            <div className={theme.theme} style={{position: 'absolute', left: '50%', top: '80%'}}>
+                                <Image src={passive.conditions[0]} floated='left' className={theme.theme} width={24} height={24} />
+                                <Image src={passive.conditions[1]} floated='left' className={theme.theme} width={24} height={24} />
+                            </div>
                       </Grid.Column>
                   </Grid.Row>
                   <Grid.Row>
@@ -507,7 +512,9 @@ function buildPassive(passive: any, vertical: boolean) {
                           <Table compact size='small' className={theme.theme}>
                               <Table.Header>
                                   <Table.Row>
-                                      <Table.HeaderCell colSpan='2'>{passive.name}</Table.HeaderCell>
+                                    <Table.HeaderCell colSpan='2'>
+                                        {passive.name}
+                                    </Table.HeaderCell>
                                   </Table.Row>
                               </Table.Header>
           
@@ -534,7 +541,13 @@ function buildPassive(passive: any, vertical: boolean) {
                         <Table compact size='small' className={theme.theme}>
                             <Table.Header>
                                 <Table.Row>
-                                    <Table.HeaderCell colSpan='2'>{passive.name}</Table.HeaderCell>
+                                    <Table.HeaderCell colSpan='1'>
+                                        <Image src={passive.image} centered rounded />
+                                        <div className={theme.theme} style={{position: 'absolute', left: '50%', top: '80%'}}>
+                                            <Image src={passive.conditions[0]} floated='left' className={theme.theme} width={24} height={24} />
+                                            <Image src={passive.conditions[1]} floated='left' className={theme.theme} width={24} height={24} />
+                                        </div>
+                                    </Table.HeaderCell>
                                 </Table.Row>
                             </Table.Header>
 
@@ -562,7 +575,11 @@ function buildGrace(passive: any, vertical: boolean) {
                 <Grid columns='equal'>
                   <Grid.Row stretched>
                       <Grid.Column>
-                          <Image src={passive.image} floated='left' centered rounded />
+                        <Image src={passive.image} centered rounded />
+                        <div className={theme.theme} style={{position: 'absolute', left: '50%', top: '80%'}}>
+                            <Image src={passive.conditions[0]} floated='left' className={theme.theme} width={24} height={24} />
+                            <Image src={passive.conditions[1]} floated='left' className={theme.theme} width={24} height={24} />
+                        </div>
                       </Grid.Column>
                   </Grid.Row>
                   <Grid.Row>

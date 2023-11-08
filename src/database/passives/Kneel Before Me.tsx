@@ -1,6 +1,6 @@
 import { ThemeContext } from '../../theme/theme-context'
 import { AttackRelatedStatsIncrease } from '../_effects';
-import IPassive from './_IPassive';
+import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
     image = require("../../assets/characters/[Spellbinding Queen] Goddess of Beauty Freyja/unique.png");
@@ -8,6 +8,10 @@ class Passive implements IPassive {
     effects = [
         AttackRelatedStatsIncrease()
     ];
+    conditions = [
+        Type.BATTLE_START,
+        Type.ALL
+    ]
 
     getDescription() {
         return (
