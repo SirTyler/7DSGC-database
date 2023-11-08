@@ -1,5 +1,5 @@
 import { ThemeContext } from '../../theme/theme-context'
-import { AbsoluteDefense, AttackRelatedStatsIncrease, BasicStatsIncrease, DeathSentence, Deathbrand } from '../_effects';
+import { BasicStatsIncrease, DeathSentence, Deathbrand } from '../_effects';
 import IPassive from './_IPassive';
 
 class Passive implements IPassive {
