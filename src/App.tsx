@@ -18,6 +18,7 @@ import './App.css';
 import Database from './Database';
 import Characteristics from "./Characteristics";
 import SubSlots from "./SubSlots";
+import ScrollButton from "./ScrollButon";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const state = {
@@ -101,6 +102,7 @@ function Root() {
     <ThemeContext.Consumer>
     {(theme) => (
       <div className={theme.dark ? 'dark' : ''}>
+      <ScrollButton />
       <Container>
         <NavCrumb />
         <Divider />
