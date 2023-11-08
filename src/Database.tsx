@@ -6,7 +6,7 @@ import { database, db_build, latest_database } from "./database/_database";
 import { ThemeContext } from './theme/theme-context';
 
 let init = false;
-const data: { name: any; display: JSX.Element; }[] = [];
+const data: { name: string; race: string, attr: string, rarity: string, display: JSX.Element; }[] = [];
 const latest: JSX.Element[] = [];
 
 class Page extends Component {
@@ -32,6 +32,9 @@ class Page extends Component {
         database.forEach(character => {
             let c = {
               name: character.sort.toLowerCase(),
+              race: character.race.toLocaleLowerCase(),
+              attr: character.attribute.toLowerCase(),
+              rarity: character.rarity.toLowerCase(),
               display: (
               <ThemeContext.Consumer>
                 {(theme) => (
@@ -97,7 +100,7 @@ class Page extends Component {
         <ThemeContext.Consumer>
             {(theme) => (
             <>
-                <h2>Latest Characters</h2>
+                <Header className={theme.theme} as='h2'>Latest Characters</Header>
                 <Grid columns='2' stackable  className={theme.theme}>
                     {latest}
                 </Grid>
@@ -105,14 +108,37 @@ class Page extends Component {
                 <Segment className={theme.theme}>
                   <label>Search: </label>
                   <input type="text" name="filterText" onChange={this.stateChange} />
+                  <select name="filterAttr" onChange={this.stateChange}>
+                    <option value=""></option>
+                    <option value="Speed">Speed</option>
+                    <option value="Strength">Strength</option>
+                    <option value="HP">HP</option>
+                    <option value="Darkness">Darkness</option>
+                    <option value="Light">Light</option>
+                  </select>
+                  <select name="filterRace" onChange={this.stateChange}>
+                    <option value=""></option>
+                    <option value="Demon">Demon</option>
+                    <option value="Fairy">Fairy</option>
+                    <option value="Giant">Giant</option>
+                    <option value="Goddess">Goddess</option>
+                    <option value="Human">Human</option>
+                    <option value="Unknown">Unknown</option>
+                  </select>
                 </Segment>
                 <br />
                 <Grid columns='3' stackable>
+                  <>
                     {data.filter(character => character.name.includes(this.state.filterText.toLowerCase())).map(filter => (
-                    <>
-                        {filter.display}
-                    </>
+                      filter.attr.includes(this.state.filterAttr.toLowerCase()) &&(
+                        filter.race.includes(this.state.filterRace.toLowerCase()) &&(
+                          <>
+                            {filter.display}
+                          </>
+                        )
+                      )
                     ))}
+                    </>
                 </Grid>
             </>
             )}
