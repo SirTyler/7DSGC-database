@@ -1,5 +1,5 @@
 import { ThemeContext } from '../../theme/theme-context'
-import { AllStatsIncrease, ApplicableAlly, AttackIncrease, BasicStatsIncrease, PierceRateIncrease, SkillRankIncrease, SourceOfPain } from '../_effects';
+import { AllStatsIncrease, ApplicableAlly, AttackIncrease, SourceOfPain } from '../_effects';
 import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
