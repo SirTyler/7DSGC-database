@@ -7,7 +7,7 @@ import {
   useLocation,
   useRouteError
 } from "react-router-dom";
-import { Container, Segment, Divider, Image, Breadcrumb, Header} from 'semantic-ui-react'
+import { Container, Segment, Divider, Image, Breadcrumb, Header, Button} from 'semantic-ui-react'
 
 import Character, {
   loader as characterLoader,
@@ -20,43 +20,44 @@ import Characteristics from "./Characteristics";
 import SubSlots from "./SubSlots";
 import ScrollButton from "./ScrollButon";
 import EffectFilter from "./EffectFilter";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const state = {
-  filterText: ''
-}
+import DatabaseComponent from "./DatabaseComponent";
+import { latest_database } from "./database/_database";
 
 const NavCrumb = () => {
   const { pathname } = useLocation();
 
   const paths = pathname.split("/").filter(Boolean);
   return (
-    <Breadcrumb>
-    {paths.length ? (
-      <>
-      <Breadcrumb.Section
-        as={Link}
-        to={"/"}>Home</Breadcrumb.Section>
-        <Breadcrumb.Divider />
-      </>
-    ) : (
-      <Breadcrumb.Section>Home</Breadcrumb.Section>
-    )}
-    {paths.map((name, index) => {
-      const routeTo = `/${paths.slice(0, index+1).join("/")}`;
-      const isLast = index === paths.length-1;
-      return isLast ? (
-        <Breadcrumb.Section>{decodeURIComponent(name).replaceAll("+"," ")}</Breadcrumb.Section>
-      ) : (
+    <ThemeContext.Consumer>
+    {(theme) => (
+      <Breadcrumb className={theme.theme}>
+      {paths.length ? (
         <>
         <Breadcrumb.Section
           as={Link}
-          to={routeTo}>{decodeURIComponent(name).replaceAll("+"," ")}</Breadcrumb.Section>
+          to={"/"}>Home</Breadcrumb.Section>
           <Breadcrumb.Divider />
-          </>
-      );
-    })}
-    </Breadcrumb>
+        </>
+      ) : (
+        <Breadcrumb.Section>Home</Breadcrumb.Section>
+      )}
+      {paths.map((name, index) => {
+        const routeTo = `/${paths.slice(0, index+1).join("/")}`;
+        const isLast = index === paths.length-1;
+        return isLast ? (
+          <Breadcrumb.Section>{decodeURIComponent(name).replaceAll("+"," ")}</Breadcrumb.Section>
+        ) : (
+          <>
+          <Breadcrumb.Section
+            as={Link}
+            to={routeTo}>{decodeURIComponent(name).replaceAll("+"," ")}</Breadcrumb.Section>
+            <Breadcrumb.Divider />
+            </>
+        );
+      })}
+      </Breadcrumb>
+    )}
+    </ThemeContext.Consumer>
   )
 };
 
@@ -109,14 +110,14 @@ function Root() {
     <ThemeContext.Consumer>
     {(theme) => (
       <div className={theme.dark ? 'dark' : ''}>
-      <ScrollButton />
-      <Container>
-        <NavCrumb />
-        <Divider />
-        <ScrollToTop />
-        <Outlet />
-      </Container>
-      <ToggleButton />
+        <ScrollButton />
+        <Container>
+          <NavCrumb />
+          <Divider />
+          <ScrollToTop />
+          <Outlet />
+        </Container>
+        <ToggleButton />
       </div>
     )}
   </ThemeContext.Consumer>
@@ -143,10 +144,18 @@ function Index() {
       <ThemeContext.Consumer>
         {(theme) => (
           <>
-            <Segment clearing as={Link} style={{display:'block'}}to='database' className={theme.theme}>Database</Segment>
-            <Segment clearing as={Link} style={{display:'block'}}to='characteristics' className={theme.theme}>Characteristics</Segment>
-            <Segment clearing as={Link} style={{display:'block'}}to='subslots' className={theme.theme}>Sub Slot Uniques</Segment>
-            <Segment clearing as={Link} style={{display:'block'}}to='effects' className={theme.theme}>Effects Filter</Segment>
+            <Header className={theme.theme} as='h2'>Latest Characters</Header>
+            <DatabaseComponent database={latest_database} gridSize={2} />
+            <Divider />
+            <Segment className={theme.theme}>
+              <Button clearing fluid as={Link} to='database' className={theme.theme}>Database</Button>
+              <br />
+              <Button.Group widths='3'>
+                <Button clearing as={Link} to='characteristics' className={theme.theme}>Characteristics</Button>
+                <Button clearing as={Link} to='subslots' className={theme.theme}>Sub Slot Uniques</Button>
+                <Button clearing as={Link} to='effects' className={theme.theme}>Effects Filter</Button>
+              </Button.Group>
+            </Segment>
           </>
         )}
       </ThemeContext.Consumer>

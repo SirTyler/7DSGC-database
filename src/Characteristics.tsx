@@ -1,20 +1,18 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
-import { Segment, Image, Header, Grid, Divider } from 'semantic-ui-react'
+import { Segment, Header, Grid, Divider } from 'semantic-ui-react'
 
 import { ThemeContext } from './theme/theme-context';
-import ICharacter from "./database/characters/_ICharacter";
+import DatabaseComponent from "./DatabaseComponent";
 
-let init = false;
+import * as TheSevenDeadlySins from "./database/group/The Seven Deadly Sins";
+import * as TheSevenCatastrophes from "./database/group/The Seven Catastrophes";
+import * as TheFourArchAngels from "./database/group/The Four Archangels";
+import * as Commandments from "./database/group/Commandment";
+import * as Ragnarok from "./database/group/Ragnarok";
+import * as God from "./database/group/God";
+import * as Collab from "./database/group/Collab";
 
 class Page extends Component {
-
-    constructor(props: any) {
-        super(props);
-        if(!init) {
-            init = true;
-        }
-    }
 
     render() {
       return(
@@ -26,19 +24,54 @@ class Page extends Component {
             </Header>
             <Grid.Row stretched>
               <Segment className={theme.theme}>
-                {buildGroup(require('./database/group/The Seven Deadly Sins'))}
+                <Grid.Column>
+                  <Header as='h3' textAlign="center" className={theme.theme}>
+                    {TheSevenDeadlySins.name}
+                  </Header>
+                  <DatabaseComponent database={TheSevenDeadlySins.members} gridSize={4} headerSize="h3" imageSize={75}/>
+                </Grid.Column>
                 <Divider />
-                {buildGroup(require('./database/group/The Seven Catastrophes'))}
+                <Grid.Column>
+                  <Header as='h3' textAlign="center" className={theme.theme}>
+                    {TheSevenCatastrophes.name}
+                  </Header>
+                  <DatabaseComponent database={TheSevenCatastrophes.members} gridSize={4} headerSize="h3" imageSize={75}/>
+                </Grid.Column>
                 <Divider />
-                {buildGroup(require('./database/group/Commandment'))}
+                <Grid.Column>
+                  <Header as='h3' textAlign="center" className={theme.theme}>
+                    {TheFourArchAngels.name}
+                  </Header>
+                  <DatabaseComponent database={TheFourArchAngels.members} gridSize={4} headerSize="h3" imageSize={75}/>
+                </Grid.Column>
                 <Divider />
-                {buildGroup(require('./database/group/The Four Archangels'))}
+                <Grid.Column>
+                  <Header as='h3' textAlign="center" className={theme.theme}>
+                    {Commandments.name}
+                  </Header>
+                  <DatabaseComponent database={Commandments.members} gridSize={4} headerSize="h3" imageSize={75}/>
+                </Grid.Column>
                 <Divider />
-                {buildGroup(require('./database/group/Ragnarok'))}
+                <Grid.Column>
+                  <Header as='h3' textAlign="center" className={theme.theme}>
+                    {Ragnarok.name}
+                  </Header>
+                  <DatabaseComponent database={Ragnarok.members} gridSize={4} headerSize="h3" imageSize={75}/>
+                </Grid.Column>
                 <Divider />
-                {buildGroup(require('./database/group/God'))}
+                <Grid.Column>
+                  <Header as='h3' textAlign="center" className={theme.theme}>
+                    {God.name}
+                  </Header>
+                  <DatabaseComponent database={God.members} gridSize={4} headerSize="h3" imageSize={75}/>
+                </Grid.Column>
                 <Divider />
-                {buildGroup(require('./database/group/Collab'))}
+                <Grid.Column>
+                  <Header as='h3' textAlign="center" className={theme.theme}>
+                    {Collab.name}
+                  </Header>
+                  <DatabaseComponent database={Collab.members} gridSize={4} headerSize="h3" imageSize={75}/>
+                </Grid.Column>
               </Segment>
             </Grid.Row>
             </>
@@ -46,62 +79,6 @@ class Page extends Component {
         </ThemeContext.Consumer>
      );
     }
-}
-
-function buildGroup(group: {name: string, members: ICharacter[]}) {
-
-  return (
-    <ThemeContext.Consumer>
-      {(theme) => (
-      <Grid.Column>
-          <Header as='h3' textAlign="center" className={theme.theme}>
-            {group.name}
-          </Header>
-          {buildAssoc(group.members)}
-      </Grid.Column>
-    )}
-    </ThemeContext.Consumer>
-  )
-}
-
-function buildAssoc(association: ICharacter[]) {
-  const table: JSX.Element[] = [];
-
-  association.sort((n1,n2) => {
-      let a = n1.sort.toLowerCase();
-      let b = n2.sort.toLowerCase();
-
-      if(a < b) return -1;
-      if(a > b) return 1;
-      return 0;
-    });
-
-  table.length = 0;
-  association.forEach(character => {
-      table.push(
-        <ThemeContext.Consumer>
-        {(theme) => (
-        <Grid.Column className={theme.theme}>
-        <Segment clearing as={Link} style={{display:'block'}}to={`../database/${character.title}+${character.name}`} className={theme.theme}>
-          <Image src={character.image} floated='left' rounded className={theme.theme} width={75} height={75}/>
-            <Header as='h3' textAlign="left" className={theme.theme}>
-              <Header.Subheader className={theme.theme}>
-                [{character.title}]
-              </Header.Subheader>
-              {character.s_name}
-            </Header>
-        </Segment>
-        </Grid.Column>
-        )}
-      </ThemeContext.Consumer>
-      )
-  });
-
-  return (
-    <Grid columns='4' stackable>
-      {table}
-    </Grid>
-  )
 }
 
 export default Page;

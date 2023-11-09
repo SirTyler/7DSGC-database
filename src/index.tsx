@@ -8,6 +8,7 @@ import { ThemeProvider } from './theme/theme-context';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css'
 import { RouterProvider } from 'react-router';
+import { db_build } from './database/_database';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -21,4 +22,5 @@ root.render(
   </ThemeProvider>
 );
 
+db_build();
 reportWebVitals();

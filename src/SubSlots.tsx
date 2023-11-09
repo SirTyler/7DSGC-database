@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Segment, Image, Header, Grid } from 'semantic-ui-react'
 
 import { ThemeContext } from './theme/theme-context';
-import { db_build, sub_passives } from "./database/_database";
+import { database } from "./database/_database";
+import { Type } from "./database/passives/_IPassive";
 
 let init = false;
 const data: { name: any; display: JSX.Element; }[] = [];
@@ -13,7 +14,6 @@ class Page extends Component {
     constructor(props: any) {
         super(props);
         if(!init) {
-            db_build();
             this.build();
             init = true;
         }
@@ -28,10 +28,10 @@ class Page extends Component {
     
     build() {
         data.length = 0;
-        sub_passives.forEach(character => {
-            let c = {
-              name: character.sort.toLowerCase(),
-              display: (
+        database.filter(character => character.unique.conditions.includes(Type.SUB)).map(character => {
+          let c = {
+            name: character.sort.toLowerCase(),
+            display: (
               <ThemeContext.Consumer>
                 {(theme) => (
                 <Grid.Column className={theme.theme}>
@@ -48,8 +48,8 @@ class Page extends Component {
                 )}
               </ThemeContext.Consumer>
               )
-            }
-            data.push(c)
+          }
+          data.push(c);
         });
 
         data.sort((n1,n2) => {

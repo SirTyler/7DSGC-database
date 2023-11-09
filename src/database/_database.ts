@@ -11,7 +11,6 @@ import iGNewWingsKing from "./characters/[Sweet Jelly] New Wings King";
 import iRFreyja from "./characters/[Spellbinding Queen] Goddess of Beauty Freyja";
 import iDPurgatoryMeliodas from "./characters/[Cursed Shackles] Purgatory Meliodas";
 import iBIronBloodMono from "./characters/[Full Moon Shadow] Iron Blood Mono";
-import { Type } from "./passives/_IPassive";
 
 export var BAlbedo: ICharacter = new iBAlbedo();
 export var BAinz: ICharacter = new iBAinz();
@@ -25,7 +24,11 @@ export var RFreyja: ICharacter = new iRFreyja();
 export var DPurgatoryMeliodas: ICharacter = new iDPurgatoryMeliodas();
 export var BIronBloodMono: ICharacter = new iBIronBloodMono();
 
+let init = false;
+
 export function db_build() {
+    if(init) return;
+
     BAlbedo = new iBAlbedo();
     BAinz = new iBAinz();
     RShalltear = new iRShalltear();
@@ -38,15 +41,8 @@ export function db_build() {
     DPurgatoryMeliodas = new iDPurgatoryMeliodas();
     BIronBloodMono = new iBIronBloodMono();
 
-    sub_passives.length = 0;
-    database.forEach(character => {
-        if(character.unique.conditions[0].valueOf() === Type.SUB.valueOf()) {
-            sub_passives.push(character);
-        }
-    });
+    init = true;
 }
-
-export const sub_passives: ICharacter[] = []
 
 export const latest_database: ICharacter[] = [
     BAlbedo,
