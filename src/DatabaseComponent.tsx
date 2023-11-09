@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { Segment, Image, Header, Grid, SemanticWIDTHSNUMBER } from 'semantic-ui-react'
+import { Segment, Image, Header, Grid, SemanticWIDTHSNUMBER, Select, Input } from 'semantic-ui-react'
 
 import { ThemeContext } from './theme/theme-context';
 import ICharacter from "./database/characters/_ICharacter";
@@ -65,12 +65,8 @@ class DatabaseComponent extends Component<{database: ICharacter[], gridSize?: Se
         });
     }
 
-
-    stateChange = (f: { target: { name: string; value: any; }; }) => {
-        const {name, value} = f.target;
-        this.setState({
-            [name]: value,
-        });
+    stateChange = (selector: any, event: any) => {
+      this.setState({[selector]: event.value});
     }
 
     render() {
@@ -81,27 +77,35 @@ class DatabaseComponent extends Component<{database: ICharacter[], gridSize?: Se
                 {this.props.filter && (
                   <>
                   <Segment className={theme.theme}>
-                  <label>Search: </label>
-                  <input type="text" name="filterText" onChange={this.stateChange} />
-                  <select name="filterAttr" onChange={this.stateChange}>
-                    <option value=""></option>
-                    <option value="Speed">Speed</option>
-                    <option value="Strength">Strength</option>
-                    <option value="HP">HP</option>
-                    <option value="Darkness">Darkness</option>
-                    <option value="Light">Light</option>
-                  </select>
-                  <select name="filterRace" onChange={this.stateChange}>
-                    <option value=""></option>
-                    <option value="Demon">Demon</option>
-                    <option value="Fairy">Fairy</option>
-                    <option value="Giant">Giant</option>
-                    <option value="Goddess">Goddess</option>
-                    <option value="Human">Human</option>
-                    <option value="Unknown">Unknown</option>
-                  </select>
-                </Segment>
-                <br />
+                    <Header as='h2'>Search: </Header>
+                    <Grid columns={3} stackable>
+                      <Grid.Column>
+                        <Input fluid icon='users' iconPosition='left' placeholder='Search Characters...' onChange={(event, data) => this.stateChange("filterText", data)}/>
+                      </Grid.Column>
+                      <Grid.Column>
+                        <Select fluid placeholder='Select Attribute...' options={[
+                          {value: '', text: ''},
+                          {value: 'Speed', text: 'Speed'},
+                          {value: 'Strength', text: 'Strength'},
+                          {value: 'HP', text: 'HP'},
+                          {value: 'Darkness', text: 'Darkness'},
+                          {value: 'Light', text: 'Light'}
+                        ]} onChange={(event, data) => this.stateChange("filterAttr", data)} />
+                      </Grid.Column>
+                      <Grid.Column>
+                        <Select fluid placeholder='Select Race...' options={[
+                          {value: '', text: ''},
+                          {value: 'Demon', text: 'Demon'},
+                          {value: 'Fairy', text: 'Fairy'},
+                          {value: 'Giant', text: 'Giant'},
+                          {value: 'Goddess', text: 'Goddess'},
+                          {value: 'Human', text: 'Human'},
+                          {value: 'Unknown', text: 'Unknown'}
+                        ]} onChange={(event, data) => this.stateChange("filterRace", data)} />
+                      </Grid.Column>
+                    </Grid>
+                  </Segment>
+                  <br />
                 </>
                 )}
                 <Grid columns={this.gridSize} stackable>

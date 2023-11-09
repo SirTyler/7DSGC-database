@@ -1,13 +1,13 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
-import { Segment, Image, Header, Grid } from 'semantic-ui-react'
 
 import { ThemeContext } from './theme/theme-context';
 import { database } from "./database/_database";
 import { Type } from "./database/passives/_IPassive";
+import ICharacter from "./database/characters/_ICharacter";
+import DatabaseComponent from "./DatabaseComponent";
 
 let init = false;
-const data: { name: any; display: JSX.Element; }[] = [];
+const data: ICharacter[] = [];
 
 class Page extends Component {
 
@@ -18,55 +18,20 @@ class Page extends Component {
             init = true;
         }
     }
-
-    state = {
-        filterText: '',
-        filterRace: '',
-        filterAttr: '',
-        filterRarity: '',
-    }
     
     build() {
         data.length = 0;
         database.filter(character => character.unique.conditions.includes(Type.SUB)).map(character => {
-          let c = {
-            name: character.sort.toLowerCase(),
-            display: (
-              <ThemeContext.Consumer>
-                {(theme) => (
-                <Grid.Column className={theme.theme}>
-                <Segment clearing as={Link} style={{display:'block'}}to={`../database/${character.title}+${character.name}`} className={theme.theme}>
-                  <Image src={character.image} floated='left' rounded className={theme.theme} width={100} height={100}/>
-                    <Header as='h1' textAlign="left" className={theme.theme}>
-                      <Header.Subheader className={theme.theme}>
-                        [{character.title}]
-                      </Header.Subheader>
-                      {character.s_name}
-                    </Header>
-                </Segment>
-                </Grid.Column>
-                )}
-              </ThemeContext.Consumer>
-              )
-          }
-          data.push(c);
+          data.push(character);
         });
 
         data.sort((n1,n2) => {
-          let a = n1.name.toLowerCase();
-          let b = n2.name.toLowerCase();
+          let a = n1.sort.toLowerCase();
+          let b = n2.sort.toLowerCase();
   
           if(a < b) return -1;
           if(a > b) return 1;
           return 0;
-        });
-    }
-
-
-    stateChange = (f: { target: { name: string; value: any; }; }) => {
-        const {name, value} = f.target;
-        this.setState({
-            [name]: value,
         });
     }
 
@@ -75,18 +40,7 @@ class Page extends Component {
         <ThemeContext.Consumer>
             {(theme) => (
             <>
-                <Segment className={theme.theme}>
-                  <label>Search: </label>
-                  <input type="text" name="filterText" onChange={this.stateChange} />
-                </Segment>
-                <br />
-                <Grid columns='3' stackable>
-                    {data.filter(character => character.name.includes(this.state.filterText.toLowerCase())).map(filter => (
-                    <>
-                        {filter.display}
-                    </>
-                    ))}
-                </Grid>
+                <DatabaseComponent database={data} gridSize={2} filter={true} />
             </>
             )}
         </ThemeContext.Consumer>

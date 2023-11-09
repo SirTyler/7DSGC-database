@@ -91,8 +91,8 @@ class Page extends Component {
             {(theme) => (
             <>
                 <Segment className={theme.theme}>
-                  <label>Search: </label>
-                  <Select options={select_options} onChange={(event, data) => this.stateChange("filterEffect", data)} />
+                  <Header as='h2'>Search: </Header>
+                  <Select fluid placeholder='Select Effect...' options={select_options} onChange={(event, data) => this.stateChange("filterEffect", data)} />
                 </Segment>
                 <br />
                 <Grid columns='3' stackable>
