@@ -21,6 +21,8 @@ class Page extends Component {
     
     build() {
         data.length = 0;
+        
+        // eslint-disable-next-line
         database.filter(character => character.unique.conditions.includes(Type.SUB)).map(character => {
           data.push(character);
         });
