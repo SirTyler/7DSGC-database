@@ -232,7 +232,7 @@ function ToggleButton() {
     <div style={{display: "inline-block", marginTop: "10px", width: "110px"}}>
       <i className={`sun icon ${theme}`} style={{float: "left"}}/>
       <div className="ui toggle checkbox">
-        <input type="checkbox" id="darkmode" onClick={toggle} defaultChecked={dark}/>
+        <input type="checkbox" id="darkmode" onClick={toggle} checked={dark} />
         <label />
       </div>
       <i className={`moon icon ${theme}`} style={{float: "right"}}/>
