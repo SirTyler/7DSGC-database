@@ -16,6 +16,8 @@ import ReactECharts from 'echarts-for-react';
 
 import { ThemeContext } from './theme/theme-context';
 import ICharacter from "./database/characters/_ICharacter";
+import ISkill from "./database/skills/_ISkill";
+import IPassive from "./database/passives/_IPassive";
 
 const limit = [
     9049    /* Attack */,
@@ -320,7 +322,7 @@ export default function Character() {
     )
 }
 
-function buildSkill(skill: any, count = 3, vertical = false) {
+function buildSkill(skill: ISkill, count = 3, vertical = false) {
     const content: any[] = [];
     for (let index = 0; index < count; index++) {
         content.push(
@@ -507,7 +509,7 @@ function buildAssoc(association: ICharacter[]) {
     )
 }
 
-function buildPassive(passive: any, vertical: boolean) {
+function buildPassive(passive: IPassive, vertical: boolean) {
     if (vertical) {
         return(
             <ThemeContext.Consumer>
@@ -567,7 +569,7 @@ function buildPassive(passive: any, vertical: boolean) {
                             </Table.Header>
 
                             <Table.Body>
-                                {passive.getDescription}
+                                {passive.getDescription()}
                             </Table.Body>
                         </Table>
                     </Grid.Column>
@@ -579,7 +581,7 @@ function buildPassive(passive: any, vertical: boolean) {
     }
 }
 
-function buildGrace(passive: any, vertical: boolean) {
+function buildGrace(passive: IPassive|null, vertical: boolean) {
     if (passive === null) return;
 
     if (vertical) {
@@ -636,7 +638,7 @@ function buildGrace(passive: any, vertical: boolean) {
                             </Table.Header>
 
                             <Table.Body>
-                                {passive.getDescription}
+                                {passive.getDescription()}
                             </Table.Body>
                         </Table>
                     </Grid.Column>
@@ -660,9 +662,4 @@ export function getCharacter(title: string, name: string) {
     })
 
     return character ?? null;
-}
-
-// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
-function PrintJson (data: any) {
-    return (<div>{JSON.stringify(data, null, 2)}</div>);
 }

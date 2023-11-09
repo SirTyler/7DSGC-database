@@ -19,6 +19,7 @@ import Database from './Database';
 import Characteristics from "./Characteristics";
 import SubSlots from "./SubSlots";
 import ScrollButton from "./ScrollButon";
+import EffectFilter from "./EffectFilter";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const state = {
@@ -90,6 +91,12 @@ export const router = createHashRouter([
             children: [
               {index: true, element: <SubSlots />}
             ]
+          },
+          {
+            path: "effects",
+            children: [
+              {index: true, element: <EffectFilter />}
+            ]
           }
         ]
       }
@@ -139,6 +146,7 @@ function Index() {
             <Segment clearing as={Link} style={{display:'block'}}to='database' className={theme.theme}>Database</Segment>
             <Segment clearing as={Link} style={{display:'block'}}to='characteristics' className={theme.theme}>Characteristics</Segment>
             <Segment clearing as={Link} style={{display:'block'}}to='subslots' className={theme.theme}>Sub Slot Uniques</Segment>
+            <Segment clearing as={Link} style={{display:'block'}}to='effects' className={theme.theme}>Effects Filter</Segment>
           </>
         )}
       </ThemeContext.Consumer>

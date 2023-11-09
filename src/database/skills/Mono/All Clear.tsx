@@ -19,8 +19,8 @@ class Skill implements ISkill {
                 <ThemeContext.Consumer>
                 {(theme) => (
                     <>
-                        {this.ranks[rankIndex].effect[0]} from all allies, then increases their {this.ranks[rankIndex].effect[1]} by <span className={`effect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[0]}%`} </span>
-                        and {this.ranks[rankIndex].effect[2]} by <span className={`effect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[1]}%`} </span>
+                        {this.ranks[rankIndex].effect[0].display} from all allies, then increases their {this.ranks[rankIndex].effect[1].display} by <span className={`effect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[0]}%`} </span>
+                        and {this.ranks[rankIndex].effect[2].display} by <span className={`effect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[1]}%`} </span>
                         for <span className={`effect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[2]}%`} turn(s).</span>
                     </>
                 )}
@@ -32,7 +32,7 @@ class Skill implements ISkill {
             <ThemeContext.Consumer>
             {(theme) => (
                 <>
-                    {this.ranks[rankIndex].effect[0]} from all allies.
+                    {this.ranks[rankIndex].effect[0].display} from all allies.
                 </>
             )}
             </ThemeContext.Consumer>

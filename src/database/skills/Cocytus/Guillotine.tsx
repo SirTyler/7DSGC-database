@@ -21,7 +21,7 @@ class Skill implements ISkill {
             <ThemeContext.Consumer>
             {(theme) => (
                 <>
-                    Increases {this.ranks[rankIndex].effect[0]} by <span className={`damage ${theme.theme}`}>50%</span> for <span className={`subeffect ${theme.theme}`}>3 turn(s)</span> and inflicts damage equal to <span className={`damage ${theme.theme}`}> {this.ranks[rankIndex].modifier}% </span> of Attack on all enemies.
+                    Increases {this.ranks[rankIndex].effect[0].display} by <span className={`damage ${theme.theme}`}>50%</span> for <span className={`subeffect ${theme.theme}`}>3 turn(s)</span> and inflicts damage equal to <span className={`damage ${theme.theme}`}> {this.ranks[rankIndex].modifier}% </span> of Attack on all enemies.
                 </>
             )}
             </ThemeContext.Consumer>

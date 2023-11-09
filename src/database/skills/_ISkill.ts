@@ -17,10 +17,10 @@ export enum Type {
 export class IRank {
     type: string = "";
     modifier: number = 0;
-    effect: JSX.Element[] = [];
+    effect: {name: string, display: JSX.Element}[] = [];
     extra: number[] = [];
 
-    constructor(type: string, modifier: number, effect: JSX.Element[], extra: number[] = []) {
+    constructor(type: string, modifier: number, effect: {name: string, display: JSX.Element}[], extra: number[] = []) {
         this.type = type;
         this.modifier = modifier;
         this.effect = effect;

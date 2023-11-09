@@ -11,14 +11,14 @@ class Passive implements IPassive {
     conditions = [
         Type.BATTLE_START,
         Type.ALL
-    ]
+    ];
 
     getDescription() {
         return (
             <ThemeContext.Consumer>
             {(theme) => (
                 <div style={{padding: "5px"}}>
-                    {this.effects[0]}.
+                    {this.effects[0].display}.
                 </div>
             )}
             </ThemeContext.Consumer>

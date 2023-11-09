@@ -21,8 +21,8 @@ class Skill implements ISkill {
             <ThemeContext.Consumer>
             {(theme) => (
                 <>
-                    {this.ranks[rankIndex].effect[0]} and {this.ranks[rankIndex].effect[1]} for <span className={`subeffect ${theme.theme}`}> {this.ranks[rankIndex].extra} turn(s)</span>, then inflicts damage equal to <span className={`damage ${theme.theme}`}> {this.ranks[rankIndex].modifier}% </span> of Attack.
-                    If the hero is participating in battle and a <span className={`subeffect ${theme.theme}`}>[Ragnarok]</span> or <span className={`subeffect ${theme.theme}`}>Unknown race ally</span> dies, {this.ranks[rankIndex].effect[2]} is applied to the hero stacking up to <span className={`subeffect ${theme.theme}`}>{this.ranks[rankIndex].extra[1]}</span> times.
+                    {this.ranks[rankIndex].effect[0].display} and {this.ranks[rankIndex].effect[1].display} for <span className={`subeffect ${theme.theme}`}> {this.ranks[rankIndex].extra} turn(s)</span>, then inflicts damage equal to <span className={`damage ${theme.theme}`}> {this.ranks[rankIndex].modifier}% </span> of Attack.
+                    If the hero is participating in battle and a <span className={`subeffect ${theme.theme}`}>[Ragnarok]</span> or <span className={`subeffect ${theme.theme}`}>Unknown race ally</span> dies, {this.ranks[rankIndex].effect[2].display} is applied to the hero stacking up to <span className={`subeffect ${theme.theme}`}>{this.ranks[rankIndex].extra[1]}</span> times.
                 </>
             )}
             </ThemeContext.Consumer>

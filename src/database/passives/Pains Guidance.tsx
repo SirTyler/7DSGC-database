@@ -21,7 +21,7 @@ class Passive implements IPassive {
             <ThemeContext.Consumer>
             {(theme) => (
                 <div style={{padding: "5px"}}>
-                    <span className={`effect ${theme.theme}`}>If the hero uses a skill</span> or {this.effects[2]} takes damage from a skill during the enemy's turn, the enemy who attacked is afflicted with {this.effects[3]} effects for <span className={`subeffect ${theme.theme}`}>2 turn(s)</span>, equal to the number of {this.effects[2]} who took damage Each {this.effects[3]} effect the enemy has increases the hero's {this.effects[1]} by <span className={`damage ${theme.theme}`}>3%</span> up to <span className={`damage ${theme.theme}`}>24%</span>. The hero's {this.effects[0]} by <span className={`damage ${theme.theme}`}>7%</span> for every {this.effects[2]} participating in battle..
+                    <span className={`effect ${theme.theme}`}>If the hero uses a skill</span> or {this.effects[2].display} takes damage from a skill during the enemy's turn, the enemy who attacked is afflicted with {this.effects[3].display} effects for <span className={`subeffect ${theme.theme}`}>2 turn(s)</span>, equal to the number of {this.effects[2].display} who took damage Each {this.effects[3].display} effect the enemy has increases the hero's {this.effects[1].display} by <span className={`damage ${theme.theme}`}>3%</span> up to <span className={`damage ${theme.theme}`}>24%</span>. The hero's {this.effects[0].display} by <span className={`damage ${theme.theme}`}>7%</span> for every {this.effects[2].display} participating in battle..
                 </div>
             )}
             </ThemeContext.Consumer>

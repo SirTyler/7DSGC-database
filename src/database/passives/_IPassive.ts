@@ -1,7 +1,7 @@
 interface IPassive {
     image: Node;
     name: string;
-    effects: any[];
+    effects: {name: string, display: JSX.Element}[];
     conditions: Type[];
 
     getDescription(): JSX.Element;

@@ -8,9 +8,9 @@ class Skill implements ISkill {
     type = Type.Melee
 
     ranks = [
-        new IRank("STANCE", 150.0, [Taunt(),Amplify()], [1]),
-        new IRank("STANCE", 250.0, [Taunt(),Amplify()], [2]),
-        new IRank("STANCE", 450.0, [Taunt(),Amplify()], [2])
+        new IRank("STANCE", 150.0, [Taunt(), Amplify()], [1]),
+        new IRank("STANCE", 250.0, [Taunt(), Amplify()], [2]),
+        new IRank("STANCE", 450.0, [Taunt(), Amplify()], [2])
     ];
 
     getDescription(rankIndex: number) {
@@ -18,8 +18,8 @@ class Skill implements ISkill {
             <ThemeContext.Consumer>
             {(theme) => (
                 <>
-                    Assumes a Stance to {this.ranks[rankIndex].effect[0]} enemies for <span className={`subeffect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[0]}`} turn(s) </span>
-                    inflicting {this.ranks[rankIndex].effect[1]} damage equal to <span className={`damage ${theme.theme}`}> {`${this.ranks[rankIndex].modifier}%`} </span> via counter when attacked.
+                    Assumes a Stance to {this.ranks[rankIndex].effect[0].display} enemies for <span className={`subeffect ${theme.theme}`}> {`${this.ranks[rankIndex].extra[0]}`} turn(s) </span>
+                    inflicting {this.ranks[rankIndex].effect[1].display} damage equal to <span className={`damage ${theme.theme}`}> {`${this.ranks[rankIndex].modifier}%`} </span> via counter when attacked.
                 </>
             )}
             </ThemeContext.Consumer>
