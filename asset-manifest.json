@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/7DSGC-database/static/css/main.ba8a3b3e.css",
-    "main.js": "/7DSGC-database/static/js/main.6b64b4df.js",
+    "main.js": "/7DSGC-database/static/js/main.6465f315.js",
     "static/js/787.13bd1a02.chunk.js": "/7DSGC-database/static/js/787.13bd1a02.chunk.js",
     "static/media/brand-icons.svg": "/7DSGC-database/static/media/brand-icons.6729d29753e000c17489.svg",
     "static/media/icons.svg": "/7DSGC-database/static/media/icons.62d9dae4e0040e81c980.svg",
@@ -30,11 +30,11 @@
     "static/media/icon_type_0.png": "/7DSGC-database/static/media/icon_type_0.031d8508fd18c5df5965.png",
     "index.html": "/7DSGC-database/index.html",
     "main.ba8a3b3e.css.map": "/7DSGC-database/static/css/main.ba8a3b3e.css.map",
-    "main.6b64b4df.js.map": "/7DSGC-database/static/js/main.6b64b4df.js.map",
+    "main.6465f315.js.map": "/7DSGC-database/static/js/main.6465f315.js.map",
     "787.13bd1a02.chunk.js.map": "/7DSGC-database/static/js/787.13bd1a02.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ba8a3b3e.css",
-    "static/js/main.6b64b4df.js"
+    "static/js/main.6465f315.js"
   ]
 }
