@@ -1,30 +1,25 @@
 import { Component } from "react";
 
-import { ThemeContext } from './theme/theme-context';
 import { database } from "./database/_database";
-import { Type } from "./database/passives/_IPassive";
-import ICharacter from "./database/characters/_ICharacter";
+import { ThemeContext } from './theme/theme-context';
 import DatabaseComponent from "./DatabaseComponent";
+import ICharacter from "./database/characters/_ICharacter";
 
-let init = false;
 const data: ICharacter[] = [];
 
-class Page extends Component {
+class RacePage extends Component<{race?: string}> {
 
     constructor(props: any) {
         super(props);
-        if(!init) {
-            this.build();
-            init = true;
-        }
+        this.build(props.race);
     }
     
-    build() {
+    build(race: string) {
         data.length = 0;
         
         // eslint-disable-next-line
-        database.filter(character => character.unique.conditions.includes(Type.SUB)).map(character => {
-          data.push(character);
+        database.filter(character => character.race === race).map(character => {
+            data.push(character);
         });
 
         data.sort((n1,n2) => {
@@ -42,7 +37,7 @@ class Page extends Component {
         <ThemeContext.Consumer>
             {(theme) => (
             <>
-                <DatabaseComponent database={data} gridSize={2} filterName={true} filterAttribute={true} filterRace={true} />
+                <DatabaseComponent database={data} gridSize={3} filterName={true} filterAttribute={true}/>
             </>
             )}
         </ThemeContext.Consumer>
@@ -50,4 +45,4 @@ class Page extends Component {
     }
 }
 
-export default Page;
+export default RacePage;

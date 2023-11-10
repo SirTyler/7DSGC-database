@@ -14,7 +14,7 @@ class Page extends Component {
                 <Header className={theme.theme} as='h2'>Latest Characters</Header>
                 <DatabaseComponent database={latest_database} gridSize={2} />
                 <Divider />
-                <DatabaseComponent database={database} gridSize={3} filter={true}/>
+                <DatabaseComponent database={database} gridSize={3} filterName={true} filterAttribute={true} filterRace={true} />
             </>
             )}
         </ThemeContext.Consumer>

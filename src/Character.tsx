@@ -192,7 +192,7 @@ export default function Character() {
                                         <Image src={require(`./assets/icons/attribute/${character.attribute}.png`)} floated='left' rounded className={theme.theme} width={35} height={35} alt={character.attribute} />
                                     </Table.Cell>
                                     <Table.Cell height={35}>
-                                        <Image src={require(`./assets/icons/race/${character.race}.png`)} floated='left' rounded className={theme.theme} width={35} height={35} alt={character.race} />
+                                        <Image as={Link} to={`/database/${character.race}`} src={require(`./assets/icons/race/${character.race}.png`)} floated='left' rounded className={theme.theme} width={35} height={35} alt={character.race} />
                                     </Table.Cell>
                             </Table.Body>
                             </Table>

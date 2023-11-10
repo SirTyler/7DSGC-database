@@ -12,6 +12,7 @@ import { Container, Segment, Divider, Image, Breadcrumb, Header, Button} from 's
 import Character, {
   loader as characterLoader,
 } from './Character';
+import RacePage from './RacePage';
 import { ThemeContext } from './theme/theme-context';
 
 import './App.css';
@@ -74,6 +75,30 @@ export const router = createHashRouter([
             path: "database",
             children: [
               {index: true, element: <Database />},
+              {
+                path: "Demon",
+                element: <RacePage race="Demon" />
+              },
+              {
+                path: "Fairy",
+                element: <RacePage race="Fairy" />
+              },
+              {
+                path: "Giant",
+                element: <RacePage race="Giant" />
+              },
+              {
+                path: "Goddess",
+                element: <RacePage race="Goddess" />
+              },
+              {
+                path: "Human",
+                element: <RacePage race="Human" />
+              },
+              {
+                path: "Unknown",
+                element: <RacePage race="Unknown" />
+              },
               {
                 path: ":query",
                 element: <Character />,
