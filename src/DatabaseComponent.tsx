@@ -76,42 +76,46 @@ class DatabaseComponent extends Component<{database: ICharacter[], gridSize?: Se
       <ThemeContext.Consumer>
         {(theme) => (
           <>
-            <Segment className={theme.theme}>
-              <Header as='h2'>Search: </Header>
-              <Grid columns={this.filterSize as SemanticWIDTHSNUMBER} stackable>
-                {this.props.filterName && (
-                  <Grid.Column>
-                    <Input fluid icon='users' iconPosition='left' placeholder='Search Characters...' onChange={(event, data) => this.stateChange("filterText", data)} />
-                  </Grid.Column>
-                )}
-                {this.props.filterAttribute && (
-                  <Grid.Column>
-                    <Select fluid placeholder='Select Attribute...' options={[
-                      { value: '', text: '' },
-                      { value: 'Speed', text: 'Speed' },
-                      { value: 'Strength', text: 'Strength' },
-                      { value: 'HP', text: 'HP' },
-                      { value: 'Darkness', text: 'Darkness' },
-                      { value: 'Light', text: 'Light' }
-                    ]} onChange={(event, data) => this.stateChange("filterAttr", data)} />
-                  </Grid.Column>
-                )}
-                {this.props.filterRace && (
-                  <Grid.Column>
-                    <Select fluid placeholder='Select Race...' options={[
-                      { value: '', text: '' },
-                      { value: 'Demon', text: 'Demon' },
-                      { value: 'Fairy', text: 'Fairy' },
-                      { value: 'Giant', text: 'Giant' },
-                      { value: 'Goddess', text: 'Goddess' },
-                      { value: 'Human', text: 'Human' },
-                      { value: 'Unknown', text: 'Unknown' }
-                    ]} onChange={(event, data) => this.stateChange("filterRace", data)} />
-                  </Grid.Column>
-                )}
-              </Grid>
-            </Segment>
-            <br />
+            {this.filterSize > 0 && (
+              <>
+                <Segment className={theme.theme}>
+                  <Header as='h2'>Search: </Header>
+                  <Grid columns={this.filterSize as SemanticWIDTHSNUMBER} stackable>
+                    {this.props.filterName && (
+                      <Grid.Column>
+                        <Input fluid icon='users' iconPosition='left' placeholder='Search Characters...' onChange={(event, data) => this.stateChange("filterText", data)} />
+                      </Grid.Column>
+                    )}
+                    {this.props.filterAttribute && (
+                      <Grid.Column>
+                        <Select fluid placeholder='Select Attribute...' options={[
+                          { value: '', text: '' },
+                          { value: 'Speed', text: 'Speed' },
+                          { value: 'Strength', text: 'Strength' },
+                          { value: 'HP', text: 'HP' },
+                          { value: 'Darkness', text: 'Darkness' },
+                          { value: 'Light', text: 'Light' }
+                        ]} onChange={(event, data) => this.stateChange("filterAttr", data)} />
+                      </Grid.Column>
+                    )}
+                    {this.props.filterRace && (
+                      <Grid.Column>
+                        <Select fluid placeholder='Select Race...' options={[
+                          { value: '', text: '' },
+                          { value: 'Demon', text: 'Demon' },
+                          { value: 'Fairy', text: 'Fairy' },
+                          { value: 'Giant', text: 'Giant' },
+                          { value: 'Goddess', text: 'Goddess' },
+                          { value: 'Human', text: 'Human' },
+                          { value: 'Unknown', text: 'Unknown' }
+                        ]} onChange={(event, data) => this.stateChange("filterRace", data)} />
+                      </Grid.Column>
+                    )}
+                  </Grid>
+                </Segment>
+                <br />
+              </>
+            )}
             <Grid columns={this.gridSize} stackable>
               <>
                 {this.data.filter(character => character.name.includes(this.state.filterText.toLowerCase())).map(filter => (
