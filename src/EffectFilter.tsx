@@ -128,14 +128,6 @@ function buildList(character: ICharacter, toLower: boolean): string[] {
       }
     }
   })
-  for(let i = 0; i < character.unique.effects.length; i++) {
-    data.push(toLower ? character.unique.effects[i].name.toLowerCase() : character.unique.effects[i].name);
-  }
-  if(character.grace != null) {
-    for(let i = 0; i < character.grace.effects.length; i++) {
-      data.push(toLower ? character.grace.effects[i].name.toLowerCase() : character.grace.effects[i].name);
-    }
-  }
   
   data = data.filter(elem => {return elem !== "applicable ally"});
   data = removeDuplicates(data);
