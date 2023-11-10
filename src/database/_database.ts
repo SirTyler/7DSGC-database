@@ -6,6 +6,7 @@ import iRShalltear from "./characters/[Bloody Valkyrie] Shalltear Bloodfallen";
 import iGCocytus from "./characters/[Guardian of the Glacier] Cocytus";
 import iRTruthSeekerMerlin from "./characters/[Witch of the Snow] Truth Seeker Merlin";
 import iDHel from "./characters/[Shepherd of Souls] Queen Hel";
+import iGGoldenWingsElaine from "./characters/[Fulfilled Promise] Golden Wings Elaine";
 import iLMael from "./characters/[The Four Archangels] Mael of Sunshine";
 import iGNewWingsKing from "./characters/[Sweet Jelly] New Wings King";
 import iRFreyja from "./characters/[Spellbinding Queen] Goddess of Beauty Freyja";
@@ -18,6 +19,7 @@ export var RShalltear: ICharacter = new iRShalltear();
 export var GCocytus: ICharacter = new iGCocytus();
 export var RTruthSeekerMerlin: ICharacter = new iRTruthSeekerMerlin();
 export var DHel: ICharacter = new iDHel();
+export var GGoldenWingsElaine = new iGGoldenWingsElaine();
 export var LMael: ICharacter = new iLMael();
 export var GNewWingsKing: ICharacter = new iGNewWingsKing();
 export var RFreyja: ICharacter = new iRFreyja();
@@ -35,6 +37,7 @@ export function db_build() {
     GCocytus = new iGCocytus();
     RTruthSeekerMerlin = new iRTruthSeekerMerlin();
     DHel = new iDHel();
+    GGoldenWingsElaine = new iGGoldenWingsElaine();
     LMael = new iLMael();
     GNewWingsKing = new iGNewWingsKing();
     RFreyja = new iRFreyja();
@@ -58,6 +61,7 @@ export const database: ICharacter[] = [
     GCocytus,
     RTruthSeekerMerlin,
     DHel,
+    GGoldenWingsElaine,
     LMael,
     GNewWingsKing,
     RFreyja,
