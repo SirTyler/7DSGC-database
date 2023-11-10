@@ -1,12 +1,13 @@
 import { ThemeContext } from '../../theme/theme-context'
-import { AttackRelatedStatsIncrease } from '../_effects';
+import { AttackRelatedStatsIncrease, PierceRateIncrease } from '../_effects';
 import IPassive, { Type } from './_IPassive';
 
 class Passive implements IPassive {
     image = require("../../assets/characters/[Spellbinding Queen] Goddess of Beauty Freyja/unique.png");
     name = "Kneel Before Me";
     effects = [
-        AttackRelatedStatsIncrease()
+        AttackRelatedStatsIncrease(),
+        PierceRateIncrease()
     ];
     conditions = [
         Type.BATTLE_START,
@@ -19,7 +20,7 @@ class Passive implements IPassive {
             {(theme) => (
                 <div style={{padding: "5px"}}>
                     Increases the hero's {this.effects[0].display} by <span className={`damage ${theme.theme}`}> 7% </span> for every ally on the battlefield with the <span className={`effect ${theme.theme}`}>{`<Ragnarok>`} characteristic</span>.
-                    Increases allies' Pierce Rate by <span className={`damage ${theme.theme}`}> 4% </span> for every Debuff applied to enemies, up to <span className={`subeffect ${theme.theme}`}> 5 times</span>.
+                    Increases allies' {this.effects[1].display} by <span className={`damage ${theme.theme}`}> 4% </span> for every Debuff applied to enemies, up to <span className={`subeffect ${theme.theme}`}> 5 times</span>.
                 </div>
             )}
             </ThemeContext.Consumer>

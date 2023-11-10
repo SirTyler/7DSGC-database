@@ -51,6 +51,18 @@ export const CritDamageIncrease = () => ({
 }
 
 )
+export const CritDefenseIncrease = () => ({
+    name: "Crit Defense Increase",
+    display: (
+        <ThemeContext.Consumer>
+            {(theme) => (
+                <span className={`effect ${theme.theme}`}>Crit Defense</span>
+            )}
+        </ThemeContext.Consumer>
+    )
+}
+
+)
 export const DefenseIncrease = () => (
     {
         name: "Defense Increase",
@@ -599,6 +611,20 @@ export const Detonate = () => (
                 {(theme) => (
                     <Popup content="20% additional damage per orb in target's Ultimate Move Gauge."
                         trigger={<span className={`effect ${theme.theme}`}>Detonate</span>} />
+                )}
+            </ThemeContext.Consumer>
+        )
+    }
+
+)
+export const Release = () => (
+    {
+        name: "Release",
+        display: (
+            <ThemeContext.Consumer>
+                {(theme) => (
+                    <Popup content="Deals additional damage using remaining damage in Shock, Poison, and Bleed Debuffs."
+                        trigger={<span className={`effect ${theme.theme}`}>Release</span>} />
                 )}
             </ThemeContext.Consumer>
         )

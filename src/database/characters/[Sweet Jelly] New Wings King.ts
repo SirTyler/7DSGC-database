@@ -1,7 +1,7 @@
 import ICharacter from './_ICharacter';
 
 import Passive from '../passives/Please Accept It';
-import Skill1 from '../skills/King/Valentine\'s Gift';
+import Skill1 from '../skills/King/Valentines Gift';
 import Skill2 from '../skills/King/Rolling Macaroons';
 import Ultimate from '../skills/King/Tyrant Tempest';
 
